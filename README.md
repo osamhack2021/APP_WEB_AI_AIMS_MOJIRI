@@ -88,7 +88,7 @@ $ yarn start or npm run start
 <tr>
 <td width="100" align="center"><img src="" width="60" height="60"></td>
 <td width="100" align="center">이재승</td>
-<td width="300">AI 개발</td>
+<td width="300">팀 협업 관리<br>ML 개발총괄</td>
 
 <td width="100" align="center">
 	<a href="https://github.com/js0807">
