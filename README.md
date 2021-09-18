@@ -3,7 +3,7 @@
 
 
 # Project name or Logo
-![Logo](https://logosbynick.com/wp-content/uploads/2018/03/final-logo-example.png)
+![Logo](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fad0bdbbf-92fd-4548-8161-511442defd04%2FUntitled.png?table=block&id=fbbd9b35-1403-4aaa-8a11-1f1da4d85d84&spaceId=dd4cc2b1-23d6-40a2-b9f8-ed068f7b0473&width=600&userId=c748e03f-2087-4886-be26-3f04a8451cb8&cache=v2)
 
 프로젝트명 또는 프로젝트 로고 이미지 **(택1)**
 
