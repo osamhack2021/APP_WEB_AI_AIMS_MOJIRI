@@ -55,7 +55,7 @@ $ yarn start or npm run start
 </thead>
 <tbody>
 <tr>
-<td width="100" align="center"><img src="image/siwon11.png" width="70" height="70"></td>
+<td width="100" align="center"><img src="image/siwon22.png" width="70" height="70"></td>
 <td width="100" align="center">김시원</td>
 <td width="150">팀장<br>APP개발</td>
 <td width="100" align="center">
