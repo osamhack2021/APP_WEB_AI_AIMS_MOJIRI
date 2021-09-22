@@ -47,8 +47,8 @@ $ yarn start or npm run start
 <thead>
 <tr>
 <th width="100" align="center">사진</th>
-<th width="100" align="center">성명</th>
-<th width="150" align="left">담당</th>
+<th width="100" align="center">이름</th>
+<th width="150" align="center">담당</th>
 <th width="100" align="center">Github</th>
 <th width="175" align="center">Contact</th>
 </tr> 
