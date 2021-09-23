@@ -37,9 +37,6 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('AIMS'),
-      ),
       body: Center(
         child: Text('국군통합모바일보안체계'),
       ),
