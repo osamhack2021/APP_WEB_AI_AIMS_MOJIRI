@@ -1,0 +1,19 @@
+{
+  "name": "mojiri_backend",
+  "version": "1.0.0",
+  "description": "for mojiri backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bigpie1367/APP_WEB_AI_AIMS_MOJIRI.git"
+  },
+  "author": "bigpie1367",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bigpie1367/APP_WEB_AI_AIMS_MOJIRI/issues"
+  },
+  "homepage": "https://github.com/bigpie1367/APP_WEB_AI_AIMS_MOJIRI#readme"
+}
