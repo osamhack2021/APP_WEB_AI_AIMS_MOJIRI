@@ -1,6 +1,9 @@
-// var mysql = require('mysql');
-// var db_info = {
-//     host: 'localhost',
-//     port: '3306',
-//     user: 'user_name'
-// }   
+const mysql = require('mysql');
+
+module.exports = {
+    host : '20.194.62.71',
+    user : 'mojiri',
+    password : 'ahwlfl1234',
+    database : 'mojiri_db',
+    port : 3306
+};
