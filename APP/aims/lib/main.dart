@@ -1,17 +1,16 @@
+import 'package:aims/login/input_dognum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'package:aims/permission/permission2.dart';
+import 'package:aims/permission/permission.dart';
 
-//앱 최초 실행 시 권환 확인
-Future<bool> _getStatus() async {
-  //Map<Permission, PermissionStatus> status =
-  //await [Permission.storage, Permission.camera].request();
-
+//앱 최초 실행 시 권한 확인
+Future<bool> _checkStatus() async {
   if (await Permission.camera.isGranted && await Permission.storage.isGranted) {
+    //input_dognum.dart로 이동
     return true;
   } else {
     //permission.dart로 이동
@@ -20,9 +19,6 @@ Future<bool> _getStatus() async {
 }
 
 Future<void> main() async {
-  bool data = await fetchData();
-  print(data);
-
   runApp(MyApp());
 }
 
@@ -54,28 +50,26 @@ class Home extends StatefulWidget {
 
 class _Home extends State<Home> {
   Home() {
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
   }
 
   @override
   void initState() {
-    //Get.to(permission());
-    Future<bool> data = _getStatus();
-    if (data != true) {
-      // 권한이 차단되어있다면 첫 실행으로 판단. 따라서 권한허용 페이지로 이동.
-      Get.off(() => permission2());
-    } else {
-      // 권한이 허용되어있다면 첫 실행이 아니니 로그인으로.
-      //Get.off(() => login_page());
-    }
+    super.initState();
+
+    _checkStatus().then((value) {
+      if (value == false) {
+        //권한이 허용안되어 있으면 권한 허용 페이지로 이동
+        Get.off(() => permission());
+      } else {
+        //권한이 허용되어 있다면 로그인 페이지로 이동 (추후 자동로그인 구현 예정 따라서 변경 가능)
+        Get.off(() => input_dognum());
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text('main Page'),
-      ),
-    );
+    return Scaffold();
   }
 }
