@@ -49,7 +49,7 @@ $ yarn start or npm run start
 <th width="120" align="center">사진</th>
 <th width="100" align="center">이름</th>
 <th width="200" align="center">담당</th>
-<th width="100" align="center">Github</th>
+<th width="150" align="center">Github</th>
 <th width="175" align="center">Contact</th>
 </tr> 
 </thead>
@@ -58,7 +58,7 @@ $ yarn start or npm run start
 <td width="120" align="center"><img src="image/siwon11.png" width="80" height="80"></td>
 <td width="100" align="center">김시원</td>
 <td width="200">팀장<br>APP개발</td>
-<td width="100" align="center">
+<td width="150" align="center">
 	<a href="https://github.com/kimww42">
 		<img src="https://img.shields.io/badge/kimww42-655ced?style=social&logo=github"/>
 	</a>
@@ -72,7 +72,7 @@ $ yarn start or npm run start
 <td width="100" align="center">노수인</td>
 <td width="200">백엔드 개발<br>관리자Web개발</td>
 
-<td width="100" align="center">
+<td width="150" align="center">
 	<a href="https://github.com/bigpie1367">
 		<img src="https://img.shields.io/badge/bigpie1367-655ced?style=social&logo=github"/>
 	</a>
@@ -86,7 +86,7 @@ $ yarn start or npm run start
 <td width="100" align="center">이재승</td>
 <td width="200">팀 협업 관리<br>ML 개발총괄</td>
 
-<td width="100" align="center">
+<td width="150" align="center">
 	<a href="https://github.com/js0807">
 		<img src="https://img.shields.io/badge/js0807-655ced?style=social&logo=github"/>
 	</a>
