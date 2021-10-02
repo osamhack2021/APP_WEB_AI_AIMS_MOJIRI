@@ -1,4 +1,4 @@
-# Project name or Logo
+# AIMS (Armed forces Integrated Mobile Security System)
 ![Logo](image/logo_long.png)
 
 프로젝트명 또는 프로젝트 로고 이미지 **(택1)**
