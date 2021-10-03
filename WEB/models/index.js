@@ -1,3 +1,6 @@
+// for multiple db connection
+// https://medium.com/@JinleeJeong/multiple-connection-database-in-sequelize-ae86a3b022ec
+
 const dbConfig = require('../config/db.js');
 const Sequelize = require('sequelize');
 
@@ -10,7 +13,7 @@ const sequelizeConfig = new Sequelize(
         dialect: dbConfig.dialect,
         operatorsAliases: false,
         pool: {
-            max: dbConfig.pool.max,
+            // max: dbConfig.pool.max,
             min: dbConfig.pool.min,
             acquire: dbConfig.pool.acquire,
             idle: dbConfig.pool.idle

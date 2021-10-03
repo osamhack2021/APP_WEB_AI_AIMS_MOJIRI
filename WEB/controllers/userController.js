@@ -3,7 +3,7 @@ const User = db.user;
 const Op = db.sequelize.Op;
 
 exports.create = (req, res) => {
-    // Error case =============================
+    // Error case
     if (!req.body.serial_num) {
         res.status(400).send({
             message: 'Serial Num is empty!'
@@ -11,8 +11,7 @@ exports.create = (req, res) => {
 
         return;
     }
-    // ========================================
-
+    
     // 1. 국방부 DB와 연계하여 조회 
     // input : serial_num / output : name, unit_num
 

@@ -1,3 +1,5 @@
+// Connect with mojiri_db
+
 module.exports = (sequelizeConfig, Sequelize) => {
     const User = sequelizeConfig.define(
         'user',
