@@ -1,29 +1,18 @@
-// for multiple db connection
-// https://medium.com/@JinleeJeong/multiple-connection-database-in-sequelize-ae86a3b022ec
-
-const dbConfig = require('../config/db.js');
 const Sequelize = require('sequelize');
+const User = require('./user.js');
 
-const sequelizeConfig = new Sequelize(
-    dbConfig.db,
-    dbConfig.username,
-    dbConfig.password,
-    {
-        host: dbConfig.host,
-        dialect: dbConfig.dialect,
-        operatorsAliases: false,
-        pool: {
-            // max: dbConfig.pool.max,
-            min: dbConfig.pool.min,
-            acquire: dbConfig.pool.acquire,
-            idle: dbConfig.pool.idle
-        }
-    }
-);
-
+const env = process.env.NODE_ENV || 'development';
+const config = require('../config/config')[env];
 const db = {};
-db.sequelize = Sequelize;
-db.sequelizeConfig = sequelizeConfig;
-db.user = require('./user.js')(sequelizeConfig, Sequelize);
+
+const sequelize = new Sequelize(config.database, config.username, config.password, config);
+
+db.sequelize = sequelize;
+
+db.User = User;
+
+User.init(sequelize);
+
+User.associate(db);
 
 module.exports = db;

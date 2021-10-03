@@ -8,9 +8,7 @@ var logger = require('morgan');
 var cors = require('cors');
 
 // DB Setting
-var mysql = require('mysql');
-var dbconfig = require('./config/db.js');
-var connection = mysql.createConnection(dbconfig);
+var { sequelize } = require('./models'); // db.sequelize
 
 // Router Setting
 var indexRouter = require('./routes/index');
@@ -31,8 +29,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // DB Connection
-const db = require('./models/index.js');
-db.sequelizeConfig.sync();
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('DB Connected');
+  }).catch((err) => {
+    console.error(err);
+  });
 
 // Router Connection
 app.use('/', indexRouter);

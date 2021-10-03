@@ -1,6 +1,4 @@
-const db = require('../models/index.js')
-const User = db.user;
-const Op = db.sequelize.Op;
+const { User } = require('../models');
 
 exports.create = (req, res) => {
     // Error case
@@ -8,6 +6,12 @@ exports.create = (req, res) => {
         res.status(400).send({
             message: 'Serial Num is empty!'
         });
+    
+    if (!req.body.unit_num) {
+        res.status(400).send({
+            message: 'Unit Num is empty!'
+        });
+    }
 
         return;
     }
@@ -22,6 +26,8 @@ exports.create = (req, res) => {
         unit_num: req.body.unit_num,
         permission: 0
     };
+
+    console.log(user);
 
     User
         .create(user)

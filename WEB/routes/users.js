@@ -1,9 +1,7 @@
 var express = require('express');
-const { user } = require('../config/db.js');
 
 const router = express.Router();
 const userController = require('../controllers/userController.js');
-
 
 router.post('/signUp', userController.create);
 
