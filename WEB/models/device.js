@@ -1,24 +1,19 @@
 const Sequelize = require('sequelize');
 
-class User extends Sequelize.Model {
+class Device extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
-            name: {
-                type: Sequelize.STRING(20),
-                allowNull: false,
-            },
-            serial_num: {
-                type: Sequelize.INTEGER.UNSIGNED,
-                allowNull: false,
-                unique: true
-            },
-            unit_num: {
+            model_num: {
                 type: Sequelize.INTEGER.UNSIGNED,
                 allowNull: false,
             },
-            permission: {
+            imei_num: {
                 type: Sequelize.INTEGER.UNSIGNED,
-                allowNull: true,
+                allowNull: false,
+            },
+            camera_active: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
             },
             created_at: {
                 type: Sequelize.DATE,
@@ -28,9 +23,8 @@ class User extends Sequelize.Model {
         }, {
             sequelize,
             timestamps: false,
-            underscored: false,
-            modelName: 'User',
-            tableName: 'users',
+            modelName: 'Device',
+            tableName: 'devices',
             paranoid: false,
             charset: 'utf8',
             collate: 'utf8_general_ci'
@@ -38,8 +32,8 @@ class User extends Sequelize.Model {
     }
 
     static associate(db) {
-        db.User.hasMany(db.Device, { foreignKey: "owner_num", sourceKey: "serial_num"});
+        db.Device.belongsTo(db.User, { foreignKey: "owner_num", targetkey: "serial_num" });
     }
-}
+};
 
-module.exports = User;
+module.exports = Device;

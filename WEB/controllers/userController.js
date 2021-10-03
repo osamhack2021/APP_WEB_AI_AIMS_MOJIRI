@@ -1,5 +1,9 @@
 const { User } = require('../models');
+const { Device } = require('../models');
+const { Soldier } = require('../models');
+const { Op } = require('sequelize');
 
+// Create User
 exports.create = (req, res) => {
     // Error case
     if (!req.body.serial_num) {
@@ -18,6 +22,22 @@ exports.create = (req, res) => {
     
     // 1. 국방부 DB와 연계하여 조회 
     // input : serial_num / output : name, unit_num
+    Soldier
+        .findOne({
+            where: {
+                name: req.body.name,
+                serial_num: req.body.serial_num,
+                unit_num: req.body.unit_num,
+            },
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || 'User is not exist'
+            });
+        });
 
     // 2. 이상없을 경우 회원가입 진행
     const user = {
@@ -26,8 +46,6 @@ exports.create = (req, res) => {
         unit_num: req.body.unit_num,
         permission: 0
     };
-
-    console.log(user);
 
     User
         .create(user)
@@ -41,29 +59,8 @@ exports.create = (req, res) => {
         });
 };
 
+// Read User all
 exports.findAll = (req, res) => {
-    const user = req.query.user;
-    // let condition = { where: {} };
-
-    // if (keyword) { 
-    //     condition = { 
-    //         where : {
-    //             [Op.or]: [ 
-    //                 { 
-    //                     title: { 
-    //                         [Op.like]: `%${keyword}%` 
-    //                     } 
-    //                 }, 
-    //                 { 
-    //                     description: { 
-    //                     [Op.like]: `%${keyword}%` 
-    //                     } 
-    //                 } 
-    //             ] 
-    //         } 
-    //     } 
-    // };
-
     User
         .findAll()
         .then(data => {
@@ -76,3 +73,16 @@ exports.findAll = (req, res) => {
         });
 };
 
+// Read User one
+exports.findOne = (req, res) => {
+    User
+        .findOne(req.params)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || 'Retrieve user failure'
+            });
+        });
+};
