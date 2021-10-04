@@ -3,9 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+// CORS Setting
 var cors = require('cors');
 
-// router
+// DB Setting
+var { sequelize } = require('./models'); // db.sequelize
+
+// Router Setting
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -15,14 +20,23 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.use(cors());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors());
+// DB Connection
+sequelize.sync({ force: false })
+  .then(() => {
+    console.log('DB Connected');
+  }).catch((err) => {
+    console.error(err);
+  });
 
+// Router Connection
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -43,3 +57,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// https://freestrokes.tistory.com/138
