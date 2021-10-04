@@ -6,6 +6,7 @@ const userController = require('../controllers/userController.js');
 router.post('/signUp', userController.create);
 
 router.get('/', userController.findAll);
+router.get('/signIn', userController.findOne);
 
 // router.get('/:serial_num', userController.findOne);
 
