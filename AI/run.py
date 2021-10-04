@@ -1,3 +1,4 @@
+# import about image segmentation
 import numpy as np
 from PIL import Image
 from matplotlib import pyplot as plt
@@ -6,12 +7,46 @@ import cv2
 
 from model import Deeplabv3
 
+# import about easyocr
+import easyocr
+import csv
+import os,sys
+
 # Generates labels using most basic setup.  Supports various image sizes.  Returns image labels in same format
 # as original image.  Normalization matches MobileNetV2
 
+# input image through argv
+IMAGE_PATH=sys.argv[1]
+# make temp directory
+if(not(os.path.exists('./temp'))):
+    os.mkdir('./temp')
+
+# OCR Code Start
+text=""
+reader=easyocr.Reader(['ko'],model_storage_directory='EasyOCR/easyocr/model')
+result=reader.readtext(IMAGE_PATH)
+
+inhibit_list = list()
+f = open("inhibit_list.csv",'r')
+rea = csv.reader(f)
+for row in rea:
+    inhibit_list.append(row)
+f.close
+#print(inhibit_list)
+
+for i in result:
+    text+=i[1]+" "
+#print(text)
+
+for s in inhibit_list:
+    if s[0] in text:
+        sys.exit("inhibited text detected")
+# OCR Code Finish
+
+# Image Segmentation Start
 trained_image_width=512 
 mean_subtraction_value=127.5
-image = np.array(Image.open('imgs/image3.jpg'))
+image = np.array(Image.open(IMAGE_PATH))
 orig_imginal = np.array(image)
 target = 'person'
 
@@ -45,7 +80,9 @@ if pad_x > 0:
 if pad_y > 0:
     labels = labels[:, :-pad_y]
 labels = np.array(Image.fromarray(labels.astype('uint8')).resize((h, w)))
+# Image Segmentation Finish
 
+# Image Blur Start
 person_not_person_mapping = deepcopy(image)  # Seperating background & foreground classes using Segmap.
 person_not_person_mapping[labels != LABEL_NAMES.index(target)] = 0        # Replacing the pixel intensity values to 0 where the car class is not found in segmentation map  i.e changing background to balck.
 person_not_person_mapping[labels == LABEL_NAMES.index(target)] = 255
@@ -66,4 +103,5 @@ blurred_original_image = cv2.GaussianBlur(orig_imginal, (251,251), 0)
 layered_image = np.where(mapping != (0,0,0), orig_imginal, blurred_original_image)
 
 im_rgb = cv2.cvtColor(layered_image, cv2.COLOR_BGR2RGB) # Saving the new bokeh image.
-cv2.imwrite("image3_totally_complete.jpg", im_rgb)
+cv2.imwrite("./temp/result.jpg", im_rgb)
+# Image Blur Finish
