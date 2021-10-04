@@ -38,6 +38,11 @@ dependencies:
   permission_handler: ^8.1.6
   path_provider: ^1.4.0
   adobe_xd: ^2.0.0+1
+  fluttertoast: ^8.0.8
+  syncfusion_flutter_signaturepad: ^19.3.43
+  zoom_widget: ^0.2.1
+  device_info: ^2.0.2
+  http: ^0.13.4
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +60,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 flutter_native_splash:
   color: "#FFFFFF"
-  image: image/splash_logo_2.png
+  image: image/logo3.png
 # The following section is specific to Flutter.
 flutter:
 

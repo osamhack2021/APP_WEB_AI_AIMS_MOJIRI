@@ -1,0 +1,39 @@
+class Data{
+  int memSeq;
+  String memNm;
+
+  Data(this.memSeq, this.memNm);
+
+  factory Data.fromJson(dynamic json){
+    return Data(json['memSeq'] as int, json['memNm'] as String);
+  }
+
+  @override
+  String toString(){
+    return '{${this.memSeq}, ${this.memNm}}';
+  }
+}
+
+
+
+
+main
+  var _text = "Http Example";
+  List<Data> _datas = [];
+
+  void _fetchPosts() async{
+      final response = await http.get(""); 
+      _text = utf8.decode(response.bodyBytes);
+      var dataObjsJson = jsonDecode(_text)['data'] as List;
+      final List<Data> parsedResponse = dataObjsJson.map((dataJson)=>Data.fromJson(dataJson)).toList();
+      setState(() {
+        _datas.clear();
+        _datas.addAll(parsedResponse);
+      });
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    _fetchPosts();
+  }

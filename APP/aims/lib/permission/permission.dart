@@ -1,4 +1,5 @@
-import 'package:aims/login/input_dognum.dart';
+import 'package:aims/join/input_dognum.dart';
+import 'package:aims/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter/rendering.dart';
@@ -35,14 +36,12 @@ class _permission extends State<permission> {
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
-            Pin(size: 127.0, middle: 0.5015),
-            Pin(size: 127.0, start: 27.0),
-            child:
-                // Adobe XD layer: 'splash_logo' (shape)
-                Container(
+            Pin(size: 127.0, middle: 0.5),
+            Pin(size: 127.0, start: 62.0),
+            child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('image/splash_logo.png'),
+                  image: const AssetImage('image/logo2.png'),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -50,7 +49,7 @@ class _permission extends State<permission> {
           ),
           Pinned.fromPins(
             Pin(startFraction: 0.1267, endFraction: 0.1267),
-            Pin(start: 154.0, endFraction: 0.766),
+            Pin(size: 40.0, start: 189.0),
             child: Text.rich(
               TextSpan(
                 style: TextStyle(
@@ -77,7 +76,7 @@ class _permission extends State<permission> {
           ),
           Pinned.fromPins(
             Pin(start: 35.0, end: 35.0),
-            Pin(size: 1.0, start: 219.5),
+            Pin(size: 1.0, start: 254.5),
             child: SvgPicture.string(
               _svg_z2hybk,
               allowDrawingOutsideViewBox: true,
@@ -85,8 +84,8 @@ class _permission extends State<permission> {
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 34.0, endFraction: 0.584),
-            Pin(size: 23.0, start: 241.0),
+            Pin(start: 35.0, endFraction: 0.584),
+            Pin(size: 23.0, start: 276.0),
             child: Text.rich(
               TextSpan(
                 style: TextStyle(
@@ -101,7 +100,7 @@ class _permission extends State<permission> {
                   TextSpan(
                     text: '(필수)',
                     style: TextStyle(
-                      color: const Color(0xffff6e6e),
+                      color: const Color(0xff536349),
                     ),
                   ),
                 ],
@@ -113,7 +112,7 @@ class _permission extends State<permission> {
           ),
           Pinned.fromPins(
             Pin(start: 60.0, endFraction: 0.0),
-            Pin(size: 23.0, start: 439.0),
+            Pin(size: 23.0, start: 474.0),
             child: Text(
               '푸시 알림을 보내기 위해 사용됩니다.',
               style: TextStyle(
@@ -126,7 +125,7 @@ class _permission extends State<permission> {
           ),
           Pinned.fromPins(
             Pin(start: 60.0, endFraction: 0.0),
-            Pin(size: 23.0, start: 277.0),
+            Pin(size: 23.0, start: 312.0),
             child: Text(
               '앱 내에서 사진 촬영을 위해 사용됩니다.',
               style: TextStyle(
@@ -139,7 +138,7 @@ class _permission extends State<permission> {
           ),
           Pinned.fromPins(
             Pin(start: 60.0, endFraction: 0.0),
-            Pin(size: 23.0, start: 358.0),
+            Pin(size: 23.0, start: 394.0),
             child: Text(
               '촬영한 사진을 저장하기 위해 사용됩니다.',
               style: TextStyle(
@@ -152,7 +151,7 @@ class _permission extends State<permission> {
           ),
           Pinned.fromPins(
             Pin(start: 35.0, end: 35.0),
-            Pin(size: 1.0, start: 483.5),
+            Pin(size: 1.0, start: 518.5),
             child: SvgPicture.string(
               _svg_mtbnsn,
               allowDrawingOutsideViewBox: true,
@@ -160,14 +159,14 @@ class _permission extends State<permission> {
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 41.0, end: 43.0),
+            Pin(start: 35.0, end: 35.0),
             Pin(size: 49.0, end: 48.0),
             child: ElevatedButton(
               onPressed: () {
                 setState(() {
                   _getStatus().then((value) {
                     if (value == true) {
-                      Get.off(() => input_dognum());
+                      Get.off(() => login());
                     } else {}
                   });
                 });
@@ -179,13 +178,13 @@ class _permission extends State<permission> {
                     fontFamily: "NanumGothic",
                   )),
                   backgroundColor:
-                      MaterialStateProperty.all(const Color(0xffff6e6e))),
+                      MaterialStateProperty.all(const Color(0xff536349))),
               child: Text("권한 확인"),
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 34.0, endFraction: 0.3787),
-            Pin(size: 23.0, start: 322.0),
+            Pin(start: 35.0, endFraction: 0.3787),
+            Pin(size: 23.0, start: 357.0),
             child: Text.rich(
               TextSpan(
                 style: TextStyle(
@@ -200,7 +199,7 @@ class _permission extends State<permission> {
                   TextSpan(
                     text: '(필수)',
                     style: TextStyle(
-                      color: const Color(0xffff6e6e),
+                      color: const Color(0xff536349),
                     ),
                   ),
                 ],
@@ -212,7 +211,7 @@ class _permission extends State<permission> {
           ),
           Pinned.fromPins(
             Pin(start: 35.0, endFraction: 0.4347),
-            Pin(size: 23.0, start: 403.0),
+            Pin(size: 23.0, start: 438.0),
             child: Text.rich(
               TextSpan(
                 style: TextStyle(
@@ -227,7 +226,7 @@ class _permission extends State<permission> {
                   TextSpan(
                     text: '(필수)',
                     style: TextStyle(
-                      color: const Color(0xffff6e6e),
+                      color: const Color(0xff536349),
                     ),
                   ),
                 ],

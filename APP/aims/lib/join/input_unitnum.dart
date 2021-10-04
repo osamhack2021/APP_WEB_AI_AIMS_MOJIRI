@@ -1,13 +1,23 @@
+import 'package:aims/join/chk_info.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
-class input_dognum extends StatefulWidget {
+class input_unitnum extends StatefulWidget {
   @override
-  _input_dognum createState() => _input_dognum();
+  _input_unitnum createState() => _input_unitnum();
 }
 
-class _input_dognum extends State<input_dognum> {
+class _input_unitnum extends State<input_unitnum> {
+  final TextController = TextEditingController();
+
+  @override
+  void dispose() {
+    TextController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +25,10 @@ class _input_dognum extends State<input_dognum> {
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
-            Pin(size: 216.0, start: 36.0),
+            Pin(size: 330.0, start: 36.0),
             Pin(size: 33.0, start: 63.0),
             child: Text(
-              '군번을 입력해주세요',
+              '부대코드를 입력해주세요',
               style: TextStyle(
                 fontFamily: 'NanumGothic',
                 fontSize: 25,
@@ -29,10 +39,10 @@ class _input_dognum extends State<input_dognum> {
             ),
           ),
           Pinned.fromPins(
-            Pin(size: 192.0, start: 36.0),
+            Pin(size: 330.0, start: 38.0),
             Pin(size: 17.0, start: 96.0),
             child: Text(
-              '로그인 또는 회원가입을 진행합니다',
+              '모르겠다면 보안담당관에게 문의하세요',
               style: TextStyle(
                 fontFamily: 'NanumGothic',
                 fontSize: 13,
@@ -42,26 +52,32 @@ class _input_dognum extends State<input_dognum> {
             ),
           ),
           Pinned.fromPins(
-              Pin(size: 215.0, start: 36.0), Pin(size: 33.0, middle: 0.1682),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: '20-12345678',
-                ),
-              )),
-          Pinned.fromPins(
-            Pin(start: 41.0, end: 43.0),
-            Pin(size: 49.0, end: 48.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: const Color(0xffff9c9c),
+            Pin(start: 38.0, end: 38.0),
+            Pin(size: 55.0, start: 130.0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                labelText: '부대코드',
               ),
+              textInputAction: TextInputAction.next,
+              validator: (String? value) {
+                if (value!.isEmpty) {
+                  return '부대코드를 입력하세요.';
+                }
+                return null;
+              },
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 41.0, end: 43.0),
+            Pin(start: 35.0, end: 35.0),
             Pin(size: 49.0, end: 48.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                //입력한 군번과 부대코드에 일치하는 정보 있는지 확인 후 라우트
+                Get.toNamed("/chk_info", arguments: {
+                  "dognum": '${Get.arguments}',
+                  "unitnum": TextController.text
+                });
+              },
               style: ButtonStyle(
                   textStyle: MaterialStateProperty.all(TextStyle(
                     fontSize: 20,
@@ -69,7 +85,7 @@ class _input_dognum extends State<input_dognum> {
                     fontFamily: "NanumGothic",
                   )),
                   backgroundColor:
-                      MaterialStateProperty.all(const Color(0xffff6e6e))),
+                      MaterialStateProperty.all(const Color(0xff536349))),
               child: Text("확인"),
             ),
           ),
