@@ -11,6 +11,8 @@ const { Op } = require('sequelize');
 
 // Create User
 exports.create = (req, res) => {
+    console.log('User create access!');
+
     // Error case
     if (!req.body.serial_num || !req.body.unit_num || !req.body.name) {
         res.status(400).send({
@@ -19,82 +21,24 @@ exports.create = (req, res) => {
 
         return;
     }
-    
-    // 1. 국방부 DB와 연계하여 조회 
-    // input : serial_num / output : name, unit_num
-    var permission;
 
-    Soldier
-        .findOne({
-            where: {
-                serial_num: req.body.serial_num,
-                unit_num: req.body.unit_num,
-            },
-        })
-        .then(data => {
-            if (data == null) {
-                res.status(400).send({
-                    message: 'User is not exist!'
-                });
+    const user = {
+        name: req.body.name,
+        serial_num: req.body.serial_num,
+        unit_num: req.body.unit_num,
+        permission: req.body.permission,
+    };
 
-                return;
-            }
-
-            permission = data.permission;
-
-            createUser();
-            createDevice();
-
-            res.send(true);
-            return;
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message
-            });
-
-            return;
+    User
+    .create(user)
+    .then(data => {
+        console.log("User is created!");
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: err.message || 'Create user failure'
         });
-
-    createUser = () => {
-        const user = {
-            name: req.body.name,
-            serial_num: req.body.serial_num,
-            unit_num: req.body.unit_num,
-            permission: permission
-        };
-
-        User
-        .create(user)
-        .then(data => {
-            console.log("User is created!");
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || 'Create user failure'
-            });
-        });
-    }
-
-    createDevice = () => {
-        const device = {
-            model_num: req.body.model_num,
-            imei_num: req.body.imei_num,
-            camera_active: req.body.camera_active,
-            owner_num: req.body.serial_num,
-        }
-
-        Device
-        .create(device)
-        .then(data => {
-            console.log("Device is crated!");
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || 'Create device failure'
-            });
-        });
-    }
+    });
 };
 
 // Read all user

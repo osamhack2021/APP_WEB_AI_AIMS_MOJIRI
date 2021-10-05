@@ -18,6 +18,10 @@ class User extends Sequelize.Model {
             },
             permission: {
                 type: Sequelize.INTEGER.UNSIGNED,
+                allowNull: false,
+            },
+            security_pledge: {
+                type: Sequelize.STRING(20),
                 allowNull: true,
             },
             created_at: {

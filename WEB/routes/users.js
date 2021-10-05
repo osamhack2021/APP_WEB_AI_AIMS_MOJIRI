@@ -1,22 +1,24 @@
 var express = require('express');
 
+const path = require('path');
 const multer = require('multer');
-const upload = multer({
-    dest: 'uploads/'
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, "public/images/");
+    },
+    filename: function (req, file, db) {
+        const ext = path.extname(file.originalname);
+        cb(null, path.basename(file.originalname, ext) + "-" + Date.now() + ext);
+    },
 });
+
+var upload = multer({ storage: storage });
 
 const router = express.Router();
 const userController = require('../controllers/userController.js');
-const deviceController = require('../controllers/deviceController.js');
-const imageController = require('../controllers/imageController.js');
 
-router.post('/signUp', userController.create
-
-    // .then(() => {
-    //     deviceController.create;
-    //     imageController.create;
-    // });
-);
+router.post('/create', upload.single('image'), userController.create);
                 
 router.get('/', userController.findAll);
 router.get('/signIn', userController.findOne);

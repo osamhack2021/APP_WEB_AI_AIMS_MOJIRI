@@ -3,6 +3,7 @@ const { Op } = require('../models');
 
 // Create Device
 exports.create = (req, res) => {
+    console.log('Device create access');
     if (!req.body.model_num || !req.body.imei_num || !req.body.camera_active) {
         res.status(400).send({
             message: 'Specific Data is empty!'
@@ -14,7 +15,7 @@ exports.create = (req, res) => {
     const device = {
         model_num: req.body.model_num,
         imei_num: req.body.imei_num,
-        camera_active: req.body.camera.active,
+        camera_active: req.body.camera_active,
         owner_num: req.body.serial_num,
     }
 
