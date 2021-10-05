@@ -13,6 +13,7 @@ var { sequelize } = require('./models'); // db.sequelize
 // Router Setting
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var devicesRouter = require('./routes/devices');
 
 var app = express();
 
@@ -29,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // DB Connection
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
   .then(() => {
     console.log('DB Connected');
   }).catch((err) => {
@@ -39,6 +40,7 @@ sequelize.sync({ force: false })
 // Router Connection
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/devices', devicesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

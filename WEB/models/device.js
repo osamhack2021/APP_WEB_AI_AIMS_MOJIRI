@@ -4,7 +4,7 @@ class Device extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
             model_num: {
-                type: Sequelize.INTEGER.UNSIGNED,
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
             imei_num: {

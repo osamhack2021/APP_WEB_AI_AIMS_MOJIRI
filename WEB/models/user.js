@@ -8,7 +8,7 @@ class User extends Sequelize.Model {
                 allowNull: false,
             },
             serial_num: {
-                type: Sequelize.INTEGER.UNSIGNED,
+                type: Sequelize.STRING(20),
                 allowNull: false,
                 unique: true
             },
@@ -18,6 +18,10 @@ class User extends Sequelize.Model {
             },
             permission: {
                 type: Sequelize.INTEGER.UNSIGNED,
+                allowNull: false,
+            },
+            security_pledge: {
+                type: Sequelize.STRING(20),
                 allowNull: true,
             },
             created_at: {
