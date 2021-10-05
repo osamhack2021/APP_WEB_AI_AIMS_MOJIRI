@@ -7,8 +7,9 @@ import cv2
 
 from model import Deeplabv3
 
-# import about easyocr
-import easyocr
+# import about easyocr -> PaddleOCR
+# import easyocr
+from paddleocr import PaddleOCR,draw_ocr
 import csv
 import os,sys
 
@@ -22,9 +23,18 @@ if(not(os.path.exists('./temp'))):
     os.mkdir('./temp')
 
 # OCR Code Start
+'''
 text=""
 reader=easyocr.Reader(['ko'],model_storage_directory='EasyOCR/easyocr/model')
 result=reader.readtext(IMAGE_PATH)
+'''
+ocr = PaddleOCR(use_angle_cls=True, lang='korean',use_gpu=False)
+result = ocr.ocr(IMAGE_PATH, cls=True)
+text=""
+
+for line in result:
+    #print(line)
+    text+=line[1][0]+"\n"
 
 inhibit_list = list()
 f = open("inhibit_list.csv",'r')
@@ -34,8 +44,8 @@ for row in rea:
 f.close
 #print(inhibit_list)
 
-for i in result:
-    text+=i[1]+" "
+# for i in result:
+#     text+=i[1]+" "
 #print(text)
 
 for s in inhibit_list:
