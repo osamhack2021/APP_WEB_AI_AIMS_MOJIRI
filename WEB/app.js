@@ -29,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // DB Connection
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
   .then(() => {
     console.log('DB Connected');
   }).catch((err) => {

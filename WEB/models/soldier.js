@@ -19,7 +19,7 @@ class Soldier extends Sequelize.Model {
                 allowNull: false,
             },
             serial_num: {
-                type: Sequelize.INTEGER(20),
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
             unit_num: {

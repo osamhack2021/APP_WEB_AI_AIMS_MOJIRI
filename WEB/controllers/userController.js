@@ -8,9 +8,6 @@ const { User } = require('../models');
 const { Device } = require('../models');
 const { Soldier } = require('../models');
 const { Op } = require('sequelize');
-const deviceController = require('./deviceController');
-const request = require('request');
-const { createPoolCluster } = require('mysql');
 
 // Create User
 exports.create = (req, res) => {
@@ -49,6 +46,7 @@ exports.create = (req, res) => {
             createDevice();
 
             res.send(true);
+            return;
         })
         .catch(err => {
             res.status(500).send({

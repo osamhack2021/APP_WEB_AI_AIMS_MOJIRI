@@ -1,10 +1,23 @@
 var express = require('express');
 
+const multer = require('multer');
+const upload = multer({
+    dest: 'uploads/'
+});
+
 const router = express.Router();
 const userController = require('../controllers/userController.js');
+const deviceController = require('../controllers/deviceController.js');
+const imageController = require('../controllers/imageController.js');
 
-router.post('/signUp', userController.create);
+router.post('/signUp', userController.create
 
+    // .then(() => {
+    //     deviceController.create;
+    //     imageController.create;
+    // });
+);
+                
 router.get('/', userController.findAll);
 router.get('/signIn', userController.findOne);
 
