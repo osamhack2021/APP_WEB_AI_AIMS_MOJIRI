@@ -82,7 +82,7 @@ $ yarn start or npm run start
 	</td>
 </tr>
 <tr>
-<td width="120" align="center"><img src="image/jaeseung.jpg" width="80" height="80"></td>
+<td width="120" align="center"><img src="image/jaeseung.png" width="80" height="80"></td>
 <td width="100" align="center">이재승</td>
 <td width="200">팀 협업 관리<br>ML 개발총괄</td>
 
