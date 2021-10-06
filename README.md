@@ -2,27 +2,30 @@
 ![Logo](image/logo_long.png)
 
 
-## 프로잭트 소개
-- 설명 기입
+## 프로젝트 소개
+국군통합모바일보안체계(Armed Forces Integrated Mobile Security System, 이하 AIMS)는 개인 상용 정보통신장비 사용간에 병사들의 권리를 보장하고 편리함을 증대시킴과 동시에 모든 군 구성원들로부터 발생하는 보안사고를 막기 위한 목적으로 개발되었습니다.
+AIMS에서는 상용 정보통신장비 반입 간 필요한 절차들을 더욱 손쉽게 개선하였습니다. 또한, 카메라 기능을 조건부 허용하여 병사들의 권리는 더욱 보장하고 간부들이 행하는 보안사고는 줄일 수 있도록 하였습니다. 그리고 관리자를 위한 통합관리시스템을 구축하여 보안요소를 위배하는 사용자를 파악하여 내부침해시도를 막을 수 있도록 하였습니다.
+이를 통해 우리 국군의 기밀성과 병사들의 자유를 동시에 수호하도록 노력했습니다.
 
 
 ## 기능 설명
- - 설명 기입
+- 추후 설명
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
-* ECMAScript 6 지원 브라우저 사용
-* 권장: Google Chrome 버젼 77 이상
+- 추후 설명
 
 ## 기술 스택 (Technique Used) 
 ### Server(back-end)
- -  nodejs, php, java 등 서버 언어 버전 
- - express, laravel, sptring boot 등 사용한 프레임워크 
- - DB 등 사용한 다른 프로그램 
+- 추후 설명
  
-### Front-end
- -  react.js, vue.js 등 사용한 front-end 프레임워크 
- -  UI framework
- - 기타 사용한 라이브러리
+### Front-end(Web)
+- 추후 설명
+
+### Front-end(APP)
+- 추후 설명
+
+### Ai
+- 추후 설명
 
 ## 설치 안내 (Installation Process)
 ```bash
@@ -30,16 +33,6 @@ $ git clone git주소
 $ yarn or npm install
 $ yarn start or npm run start
 ```
-
-## 프로젝트 사용법 (Getting Started)
-**마크다운 문법을 이용하여 자유롭게 기재**
-
-잘 모를 경우
-구글 검색 - 마크다운 문법
-[https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017](https://post.naver.com/viewer/postView.nhn?volumeNo=24627214&memberNo=42458017)
-
- 편한 마크다운 에디터를 찾아서 사용
- 샘플 에디터 [https://stackedit.io/app#](https://stackedit.io/app#)
  
 ## 팀 정보 (Team Information)
 <table width="700">
@@ -100,7 +93,7 @@ $ yarn start or npm run start
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
  * [MIT](https://github.com/osam2020-WEB/Sample-ProjectName-TeamName/blob/master/license.md)
-1
+
 This project is licensed under the terms of the MIT license.
 
 ※ [라이선스 비교표(클릭)](https://olis.or.kr/license/compareGuide.do)
