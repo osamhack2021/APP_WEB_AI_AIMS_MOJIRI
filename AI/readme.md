@@ -5,8 +5,6 @@ Status: on-going
 
 # MOJIRI AI GUIDE
 
----
-
 ## Intro
 
 해당 프로젝트에서 AI의 역할은 **보안 위반사항 검출**을 위한 
@@ -22,8 +20,6 @@ Status: on-going
 5. 서버에서 사용 한 다음 임시파일을 제거한다.
 
 현재 프로젝트에서 빠른 개발과 효율성을 위해 오픈소스들을 적극적으로 사용하였다. 사용된 오픈소스들은 기재하였다.
-
----
 
 ## 구성 및 사용법
 
@@ -44,8 +40,6 @@ Status: on-going
 ./run.sh [IMAGE_PATH] 
 # it runs python3 keras-deeplab-v3-plus/run.py with image argv path
 ```
-
----
 
 ## Used Open Sources
 
