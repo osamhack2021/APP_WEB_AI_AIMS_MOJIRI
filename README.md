@@ -1,4 +1,3 @@
-# AIMS (Armed forces Integrated Mobile Security system)
 ![Logo](image/logo_long.png)
 
 
