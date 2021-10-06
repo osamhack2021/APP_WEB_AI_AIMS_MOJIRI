@@ -50,7 +50,7 @@ f.close
 
 for s in inhibit_list:
     if s[0] in text:
-        sys.exit("inhibited text detected")
+        sys.exit("inhibited text detected : "+s[0])
 # OCR Code Finish
 
 # Image Segmentation Start
