@@ -5,8 +5,6 @@ Status: on-going
 
 # MOJIRI AI GUIDE
 
-## Intro
-
 해당 프로젝트에서 AI의 역할은 **보안 위반사항 검출**을 위한 
 
 **이미지 검사 및 처리**를 담당하고 있다.
@@ -21,6 +19,11 @@ Status: on-going
 
 현재 프로젝트에서 빠른 개발과 효율성을 위해 오픈소스들을 적극적으로 사용하였다. 사용된 오픈소스들은 기재하였다.
 
+## 필요 요소
+
+- Python 3.8.10
+- pip3 21.2.4 (python 3.8)
+
 ## 구성 및 사용법
 
 ### 구성
@@ -33,6 +36,8 @@ Status: on-going
     - 간편한 설치를 위해 위 항목을 사용하여 패키지 설치 및 환경 세팅
 - *run.sh*
     - 간편한 실행을 위한 실행 파일
+- *run.py*
+    - 실행 코드
 
 ### 사용법
 
@@ -47,5 +52,5 @@ Status: on-going
     - [https://github.com/PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
 - **Image Segmentation** *by Google Deeplab V3+*
     - [https://github.com/bonlime/keras-deeplab-v3-plus](https://github.com/bonlime/keras-deeplab-v3-plus)
-- **Image Blurring**
+- **Image Blurring** *by patrickn699 (Google Deeplab V3+)*
     - [https://github.com/patrickn699/Background_Blur](https://github.com/patrickn699/Background_Blur)
