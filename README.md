@@ -2,6 +2,8 @@
 <p align="center">
 	<img src="https://img.shields.io/github/languages/count/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
 	<img src="https://img.shields.io/github/downloads/osamhack2021/APP_WEB_AI_AIMS_MOJIRI/total?style=flat-square" />
+	<img src="https://img.shields.io/github/stars/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
+	<img src="https://img.shields.io/github/forks/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
 	<img src="https://img.shields.io/github/license/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
 </p>
 ## 프로젝트 소개
