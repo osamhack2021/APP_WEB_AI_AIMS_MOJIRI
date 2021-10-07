@@ -3,6 +3,10 @@ const Sequelize = require('sequelize');
 class Device extends Sequelize.Model {
     static init(sequelize) {
         return super.init({
+            owner_num: {
+                type: Sequelize.STRING(20),
+                allowNull: false,
+            },
             model_num: {
                 type: Sequelize.STRING(20),
                 allowNull: false,
@@ -15,14 +19,9 @@ class Device extends Sequelize.Model {
                 type: Sequelize.BOOLEAN,
                 allowNull: false,
             },
-            created_at: {
-                type: Sequelize.DATE,
-                allowNull: false,
-                defaultValue: Sequelize.NOW,
-            },
         }, {
             sequelize,
-            timestamps: false,
+            timestamps: true,
             modelName: 'Device',
             tableName: 'devices',
             paranoid: false,
@@ -31,9 +30,7 @@ class Device extends Sequelize.Model {
         });
     }
 
-    static associate(db) {
-        db.Device.belongsTo(db.User, { foreignKey: "owner_num", targetkey: "serial_num" });
-    }
+    static associate(db) {}
 };
 
 module.exports = Device;

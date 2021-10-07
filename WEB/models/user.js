@@ -16,22 +16,13 @@ class User extends Sequelize.Model {
                 type: Sequelize.INTEGER.UNSIGNED,
                 allowNull: false,
             },
-            permission: {
-                type: Sequelize.INTEGER.UNSIGNED,
-                allowNull: false,
-            },
             security_pledge: {
                 type: Sequelize.STRING(20),
                 allowNull: true,
             },
-            created_at: {
-                type: Sequelize.DATE,
-                allowNull: false,
-                defaultValue: Sequelize.NOW,
-            },
         }, {
             sequelize,
-            timestamps: false,
+            timestamps: true,
             underscored: false,
             modelName: 'User',
             tableName: 'users',
@@ -41,9 +32,7 @@ class User extends Sequelize.Model {
         });
     }
 
-    static associate(db) {
-        db.User.hasMany(db.Device, { foreignKey: "owner_num", sourceKey: "serial_num"});
-    }
+    static associate(db) {}
 }
 
 module.exports = User;

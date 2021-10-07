@@ -3,8 +3,8 @@ const { Op } = require('sequelize');
 const request = require('request');
 
 // Create User
-exports.create = (req, res) => {
-    console.log('account create access');
+exports.signUp = (req, res) => {
+    console.log('signUp access');
 
     // Error case
     if (!req.body.serial_num || !req.body.unit_num || !req.body.name) {
@@ -32,7 +32,6 @@ exports.create = (req, res) => {
         }
 
         var name = data.name;
-        var permission = data.permission;
 
         const userOptions = {
             uri: 'http://localhost:3000/users/create',
@@ -41,7 +40,6 @@ exports.create = (req, res) => {
                 name: name,
                 serial_num: req.body.serial_num,
                 unit_num: req.body.unit_num,
-                permission: permission,
             },
             json: true
         }
@@ -50,19 +48,26 @@ exports.create = (req, res) => {
             uri: 'http://localhost:3000/devices/create',
             method: 'POST',
             body: {
+                owner_num: req.body.serial_num,
                 model_num: req.body.model_num,
                 imei_num: req.body.imei_num,
                 camera_active: req.body.camera_active,
-                serial_num: req.body.serial_num,
             },
             json: true
         }
     
-        await request.post(userOptions);
-        await request.post(deviceOptions);
-    
-        res.send('Success!');
+        var userResult = await request.post(userOptions);
+        var deviceResult = await request.post(deviceOptions);
 
+        if (!userResult || !deviceResult) {
+            res.status(500).send({
+                message: 'signUp User failure!'
+            });
+
+            return;
+        }
+
+        res.send('Success!');
     })
     .catch(err => {
         res.status(500).send({
@@ -72,3 +77,9 @@ exports.create = (req, res) => {
         return;
     });
 };
+
+exports.signIn = (req, res) => {
+    console.log("signIn access!");
+
+    
+}

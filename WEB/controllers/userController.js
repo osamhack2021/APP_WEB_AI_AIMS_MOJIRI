@@ -26,18 +26,20 @@ exports.create = (req, res) => {
         name: req.body.name,
         serial_num: req.body.serial_num,
         unit_num: req.body.unit_num,
-        permission: req.body.permission,
     };
 
     User
     .create(user)
     .then(data => {
         console.log("User is created!");
+        return true;
     })
     .catch(err => {
         res.status(500).send({
             message: err.message || 'Create user failure'
         });
+
+        return;
     });
 };
 
@@ -60,9 +62,7 @@ exports.findOne = (req, res) => {
     User
         .findOne({
             where: {
-                name: req.body.name,
                 serial_num: req.body.serial_num,
-                unit_num: req.body.unit_num,
             },
         })
         .then(data => {
