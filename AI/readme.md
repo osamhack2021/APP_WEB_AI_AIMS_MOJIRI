@@ -33,6 +33,8 @@ Status: on-going
 
 - *requirements.txt*
     - 실행에 필요한 패키지들의 버전이 기록되어 있음
+- *inhibit_list.scv*
+    - 문서 금지 단어들 리스트 
 - *setup.sh*
     - 간편한 설치를 위해 위 항목을 사용하여 패키지 설치 및 환경 세팅
 - *run.sh*
