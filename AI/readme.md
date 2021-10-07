@@ -21,8 +21,8 @@ Status: on-going
 
 ## 필요 요소
 
-- Python 3.6.9
-- pip3 9.0.1 (python 3.6)
+- Python 3.x
+- pip3
 - python3-opencv
 
 ## 구성 및 사용법
