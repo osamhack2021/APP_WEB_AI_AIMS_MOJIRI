@@ -22,7 +22,7 @@ for line in result:
     text+=line[1][0]+"\n"
 
 inhibit_list = list()
-f = open("inhibit_list.csv",'r')
+f = open("../inhibit_list.csv",'r')
 rea = csv.reader(f)
 for row in rea:
     inhibit_list.append(row)
