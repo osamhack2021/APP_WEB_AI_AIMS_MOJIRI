@@ -40,12 +40,20 @@ Status: on-going
 - *run.py*
     - 실행 코드
 
-### 사용법
+### 사용법 (+테스트)
 
 ```bash
 ./run.sh [IMAGE_PATH] 
-# it runs python3 keras-deeplab-v3-plus/run.py with image argv path
+
+# for test, run this.
+# ./run.sh images/image5.jpg
 ```
+
+## 실행 결과
+### Input Image
+![image5](./images/image5.jpg)
+### Output Image
+![image5_blurred](./images/image5_blurred.jpg)
 
 ## Used Open Sources
 
