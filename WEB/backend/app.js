@@ -15,6 +15,7 @@ var { sequelize } = require('./models'); // db.sequelize
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var devicesRouter = require('./routes/devices');
+var pictureRouter = require('./routes/pictures');
 
 var app = express();
 
@@ -43,6 +44,7 @@ sequelize.sync({ force: true })
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/devices', devicesRouter);
+app.use('/pictures', pictureRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
