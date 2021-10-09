@@ -11,8 +11,6 @@ import csv
 import os,sys
 
 IMAGE_PATH=sys.argv[1]
-if(not(os.path.exists('./temp'))):
-    os.mkdir('./temp')
 
 ocr = PaddleOCR(use_angle_cls=True, lang='korean',use_gpu=False)
 result = ocr.ocr(IMAGE_PATH, cls=True)
