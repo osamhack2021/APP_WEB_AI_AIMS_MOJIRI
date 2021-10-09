@@ -1,17 +1,17 @@
-import 'package:aims/join/input_unitnum.dart';
+import 'package:aims/signup/input_unitnum.dart';
 import 'package:aims/login/login.dart';
-import 'package:aims/join/pledge_2.dart';
+import 'package:aims/signup/pledge/signature.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class pledge_1 extends StatefulWidget {
+class pledge_3 extends StatefulWidget {
   @override
-  _pledge_1 createState() => _pledge_1();
+  _pledge_3 createState() => _pledge_3();
 }
 
-class _pledge_1 extends State<pledge_1> {
+class _pledge_3 extends State<pledge_3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,10 +49,10 @@ class _pledge_1 extends State<pledge_1> {
             Pin(start: 38.0, end: 20.0),
             Pin(size: 300.0, start: 170.0),
             child: Text(
-              '1. 개인용 상용 정보통신장비를 영내 반입함에 있어 다음 사항을 준수한다.\n가. 문자 및 그림, 영상 등을 저장·촬영·전송·영상통화 및 모바일\n인터넷을 할 수 있는 장비를 영내 반입 시 보안담당관에게 등록\n나. 등록번호를 장비에 부착',
+              '3. 홍보를 목적으로 상용 정보통신장비를 이용할 경우 ‘국방홍보훈령’과\n‘SNS 보안지침’ 및 ‘SNS 가이드라인’을 준수한다.\n\n4. 정기/수시 보안감사 및 부대 계획에 의거 실시하는 보안점검, 군사기밀\n유출 사고조사 과정에서 군사기밀 유출 원인 파악을 위한 필요성과\n상당성이 인정되는 경우 보안검사(점검), 조사에 적극 협조한다.',
               style: TextStyle(
                 fontFamily: 'NanumGothic',
-                fontSize: 13,
+                fontSize: 12,
                 color: const Color(0xff000000),
               ),
               textAlign: TextAlign.left,
@@ -63,7 +63,12 @@ class _pledge_1 extends State<pledge_1> {
             Pin(size: 49.0, end: 69.0),
             child: ElevatedButton(
               onPressed: () {
-                Get.to(pledge_2());
+                setState(() {
+                  Get.toNamed("/signature", arguments: {
+                  "dognum": '${Get.arguments['dognum']}',
+                  "unitnum": '${Get.arguments['unitnum']}',
+                });
+                });
               },
               style: ElevatedButton.styleFrom(
                 primary:

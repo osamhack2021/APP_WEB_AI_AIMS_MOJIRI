@@ -1,7 +1,5 @@
-import 'package:aims/join/chk_info.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class input_unitnum extends StatefulWidget {
@@ -59,6 +57,7 @@ class _input_unitnum extends State<input_unitnum> {
                 labelText: '부대코드',
               ),
               textInputAction: TextInputAction.next,
+              controller: TextController,
               validator: (String? value) {
                 if (value!.isEmpty) {
                   return '부대코드를 입력하세요.';
@@ -68,7 +67,7 @@ class _input_unitnum extends State<input_unitnum> {
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 35.0, end: 35.0),
+            Pin(start: 38.0, end: 38.0),
             Pin(size: 49.0, end: 48.0),
             child: ElevatedButton(
               onPressed: () {

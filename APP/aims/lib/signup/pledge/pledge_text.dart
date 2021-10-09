@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:adobe_xd/pinned.dart';
+import 'package:device_information/device_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -45,6 +46,16 @@ class _pledge_text extends State<pledge_text> {
   static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
   Map<String, dynamic> _deviceData = <String, dynamic>{};
 
+  String _platformVersion = 'Unknown',
+      _imeiNo = "",
+      _modelName = "",
+      _manufacturerName = "",
+      _deviceName = "",
+      _productName = "",
+      _cpuType = "",
+      _hardware = "";
+  var _apiLevel;
+
   @override
   void initState() {
     super.initState();
@@ -53,10 +64,28 @@ class _pledge_text extends State<pledge_text> {
 
   Future<void> initPlatformState() async {
     Map<String, dynamic> deviceData = <String, dynamic>{};
+    late String platformVersion,
+        imeiNo = '',
+        modelName = '',
+        manufacturer = '',
+        deviceName = '',
+        productName = '',
+        cpuType = '',
+        hardware = '';
+    var apiLevel;
 
     try {
       if (Platform.isAndroid) {
         deviceData = _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
+        platformVersion = await DeviceInformation.platformVersion;
+        imeiNo = await DeviceInformation.deviceIMEINumber;
+        modelName = await DeviceInformation.deviceModel;
+        manufacturer = await DeviceInformation.deviceManufacturer;
+        apiLevel = await DeviceInformation.apiLevel;
+        deviceName = await DeviceInformation.deviceName;
+        productName = await DeviceInformation.productName;
+        cpuType = await DeviceInformation.cpuName;
+        hardware = await DeviceInformation.hardware;
       }
     } on PlatformException {
       deviceData = <String, dynamic>{
@@ -68,6 +97,15 @@ class _pledge_text extends State<pledge_text> {
 
     setState(() {
       _deviceData = deviceData;
+      _platformVersion = "Running on :$platformVersion";
+      _imeiNo = imeiNo;
+      _modelName = modelName;
+      _manufacturerName = manufacturer;
+      _apiLevel = apiLevel;
+      _deviceName = deviceName;
+      _productName = productName;
+      _cpuType = cpuType;
+      _hardware = hardware;
     });
   }
 
@@ -148,7 +186,7 @@ class _pledge_text extends State<pledge_text> {
                 Pin(start: 80.0, end: 69.0),
                 Pin(size: 1200.0, middle: 0.3154),
                 child: Text(
-                  '본인은 ${now.year}년 ${now.month}월 ${now.day}일부로 개인용 상용 정보통신장비를\n영내에 반입하여 운용함에 있어 다음 사항을 준수할 것을 서약합니다.\n\n1. 개인용 상용 정보통신장비를 영내 반입함에 있어 다음 사항을 준수한다.\n   가. 문자 및 그림, 영상 등을 저장·촬영·전송·영상통화 및 모바일\n       인터넷을 할 수 있는 장비를 영내 반입 시 보안담당관에게 등록\n   나. 등록번호를 장비에 부착\n\n 2. 개인용 상용정보통신장비를 운용함에 있어 다음 사항을 준수한다.\n   가. 군사기밀 또는 민감한 군사사항 통화 금지\n   나. 군사사항을 입력, 저장, 촬영 및 전송 금지\n   다. 업무용 PC(국방망, 인터넷 등)에 접속 금지\n   라. 군사통제구역, 비밀작업실 및 비밀회의장 등 보안규정에 명시된 \n      시설에 반입금지\n   마. 군사보호구역 내에서 모바일인터넷·사진촬영·녹음·화상통화 금지\n   바. 본인(가족) 명의의 핸드폰만 반입하여 사용\n   사. 차량용 블랙박스 사용에 따른 보안대책 철저히 준수\n      1) 주기적인 저장 영상 삭제 및 교통사고시 부대관련 영상 확인/제거 후 제공\n       2) 부대 관련 영상을 인터넷이 연결된 PC내 저장 금지\n       3) 입영 시 블랙박스 촬영금지 조치 및 퇴영 시 블랙박스 촬영 조치\n       4)스마트폰용 블랙박스 앱 사용 시에도 블랙박스 보안대책 준수\n\n 3. 홍보를 목적으로 상용 정보통신장비를 이용할 경우 ‘국방홍보훈령’과  \n    ‘SNS 보안지침’ 및 ‘SNS 가이드라인’을 준수한다.\n\n 4. 정기/수시 보안감사 및 부대 계획에 의거 실시하는 보안점검, 군사기밀\n    유출 사고조사 과정에서 군사기밀 유출 원인 파악을 위한 필요성과\n    상당성이 인정되는 경우 보안검사(점검), 조사에 적극 협조한다.\n\n 5. 장비명 / 기종 : ${_deviceData['device']}, ${_deviceData['model']}',
+                  '본인은 ${now.year}년 ${now.month}월 ${now.day}일부로 개인용 상용 정보통신장비를\n영내에 반입하여 운용함에 있어 다음 사항을 준수할 것을 서약합니다.\n\n1. 개인용 상용 정보통신장비를 영내 반입함에 있어 다음 사항을 준수한다.\n   가. 문자 및 그림, 영상 등을 저장·촬영·전송·영상통화 및 모바일\n       인터넷을 할 수 있는 장비를 영내 반입 시 보안담당관에게 등록\n   나. 등록번호를 장비에 부착\n\n 2. 개인용 상용정보통신장비를 운용함에 있어 다음 사항을 준수한다.\n   가. 군사기밀 또는 민감한 군사사항 통화 금지\n   나. 군사사항을 입력, 저장, 촬영 및 전송 금지\n   다. 업무용 PC(국방망, 인터넷 등)에 접속 금지\n   라. 군사통제구역, 비밀작업실 및 비밀회의장 등 보안규정에 명시된 \n      시설에 반입금지\n   마. 군사보호구역 내에서 모바일인터넷·사진촬영·녹음·화상통화 금지\n   바. 본인(가족) 명의의 핸드폰만 반입하여 사용\n   사. 차량용 블랙박스 사용에 따른 보안대책 철저히 준수\n      1) 주기적인 저장 영상 삭제 및 교통사고시 부대관련 영상 확인/제거 후 제공\n       2) 부대 관련 영상을 인터넷이 연결된 PC내 저장 금지\n       3) 입영 시 블랙박스 촬영금지 조치 및 퇴영 시 블랙박스 촬영 조치\n       4)스마트폰용 블랙박스 앱 사용 시에도 블랙박스 보안대책 준수\n\n 3. 홍보를 목적으로 상용 정보통신장비를 이용할 경우 ‘국방홍보훈령’과  \n    ‘SNS 보안지침’ 및 ‘SNS 가이드라인’을 준수한다.\n\n 4. 정기/수시 보안감사 및 부대 계획에 의거 실시하는 보안점검, 군사기밀\n    유출 사고조사 과정에서 군사기밀 유출 원인 파악을 위한 필요성과\n    상당성이 인정되는 경우 보안검사(점검), 조사에 적극 협조한다.\n\n 5. 장비명 / 기종 : $_productName, $_modelName',
                   style: TextStyle(
                     fontFamily: 'NanumGothic',
                     fontSize: 27,
@@ -157,6 +195,8 @@ class _pledge_text extends State<pledge_text> {
                   textAlign: TextAlign.left,
                 ),
               ),
+              /*본인은 ${now.year}년 ${now.month}월 ${now.day}일부로 개인용 상용 정보통신장비를\n영내에 반입하여 운용함에 있어 다음 사항을 준수할 것을 서약합니다.\n\n1. 개인용 상용 정보통신장비를 영내 반입함에 있어 다음 사항을 준수한다.\n   가. 문자 및 그림, 영상 등을 저장·촬영·전송·영상통화 및 모바일\n       인터넷을 할 수 있는 장비를 영내 반입 시 보안담당관에게 등록\n   나. 등록번호를 장비에 부착\n\n 2. 개인용 상용정보통신장비를 운용함에 있어 다음 사항을 준수한다.\n   가. 군사기밀 또는 민감한 군사사항 통화 금지\n   나. 군사사항을 입력, 저장, 촬영 및 전송 금지\n   다. 업무용 PC(국방망, 인터넷 등)에 접속 금지\n   라. 군사통제구역, 비밀작업실 및 비밀회의장 등 보안규정에 명시된 \n      시설에 반입금지\n   마. 군사보호구역 내에서 모바일인터넷·사진촬영·녹음·화상통화 금지\n   바. 본인(가족) 명의의 핸드폰만 반입하여 사용\n   사. 차량용 블랙박스 사용에 따른 보안대책 철저히 준수\n      1) 주기적인 저장 영상 삭제 및 교통사고시 부대관련 영상 확인/제거 후 제공\n       2) 부대 관련 영상을 인터넷이 연결된 PC내 저장 금지\n       3) 입영 시 블랙박스 촬영금지 조치 및 퇴영 시 블랙박스 촬영 조치\n       4)스마트폰용 블랙박스 앱 사용 시에도 블랙박스 보안대책 준수\n\n 3. 홍보를 목적으로 상용 정보통신장비를 이용할 경우 ‘국방홍보훈령’과  \n    ‘SNS 보안지침’ 및 ‘SNS 가이드라인’을 준수한다.\n\n 4. 정기/수시 보안감사 및 부대 계획에 의거 실시하는 보안점검, 군사기밀\n    유출 사고조사 과정에서 군사기밀 유출 원인 파악을 위한 필요성과\n    상당성이 인정되는 경우 보안검사(점검), 조사에 적극 협조한다.\n\n 5. 장비명 / 기종 : ${_deviceData['brand']}, ${_deviceData['model']}*/
+
               Pinned.fromPins(
                 Pin(size: 200.0, middle: 0.529),
                 Pin(size: 36.0, end: 187.0),

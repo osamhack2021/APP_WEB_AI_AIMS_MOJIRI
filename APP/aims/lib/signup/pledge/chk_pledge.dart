@@ -4,12 +4,15 @@ import 'dart:async';
 import 'dart:ui' as ui;
 import 'dart:typed_data';
 
-import 'package:aims/join/pledge_text.dart';
+import 'package:aims/signup/pledge/pledge_text.dart';
 import 'package:aims/login/login.dart';
-import 'package:aims/join/signature.dart';
+import 'package:aims/signup/pledge/signature.dart';
+import 'package:device_information/device_information.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:zoom_widget/zoom_widget.dart';
 
@@ -21,14 +24,65 @@ class chk_pledge extends StatefulWidget {
 class _chk_pledge extends State<chk_pledge> {
   GlobalKey globalKey = GlobalKey();
 
-  Future<void> _capturePng() async {
-    final RenderRepaintBoundary boundary =
-        globalKey.currentContext!.findRenderObject()! as RenderRepaintBoundary;
-    final ui.Image image = await boundary.toImage();
-    final ByteData? byteData =
-        await image.toByteData(format: ui.ImageByteFormat.png);
-    final Uint8List pngBytes = byteData!.buffer.asUint8List();
-    print(pngBytes);
+  String _platformVersion = 'Unknown',
+      _imeiNo = "",
+      _modelName = "",
+      _manufacturerName = "",
+      _deviceName = "",
+      _productName = "",
+      _cpuType = "",
+      _hardware = "";
+  var _apiLevel;
+
+  @override
+  void initState() {
+    super.initState();
+    initPlatformState();
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> initPlatformState() async {
+    late String platformVersion,
+        imeiNo = '',
+        modelName = '',
+        manufacturer = '',
+        deviceName = '',
+        productName = '',
+        cpuType = '',
+        hardware = '';
+    var apiLevel;
+    // Platform messages may fail,
+    // so we use a try/catch PlatformException.
+    try {
+      platformVersion = await DeviceInformation.platformVersion;
+      imeiNo = await DeviceInformation.deviceIMEINumber;
+      modelName = await DeviceInformation.deviceModel;
+      manufacturer = await DeviceInformation.deviceManufacturer;
+      apiLevel = await DeviceInformation.apiLevel;
+      deviceName = await DeviceInformation.deviceName;
+      productName = await DeviceInformation.productName;
+      cpuType = await DeviceInformation.cpuName;
+      hardware = await DeviceInformation.hardware;
+    } on PlatformException catch (e) {
+      platformVersion = '${e.message}';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _platformVersion = "Running on :$platformVersion";
+      _imeiNo = imeiNo;
+      _modelName = modelName;
+      _manufacturerName = manufacturer;
+      _apiLevel = apiLevel;
+      _deviceName = deviceName;
+      _productName = productName;
+      _cpuType = cpuType;
+      _hardware = hardware;
+    });
   }
 
   @override
@@ -61,15 +115,13 @@ class _chk_pledge extends State<chk_pledge> {
               child: RepaintBoundary(
                 key: globalKey,
                 child: pledge_text(
-                  dognum: '군번',
-                  unitnum: '부대코드',
-                  bs64: '${Get.arguments}',
+                  dognum: '${Get.arguments['dognum']}',
+                  unitnum: '${Get.arguments['unitnum']}',
+                  bs64: '${Get.arguments['bs64']}',
                 ),
               ),
             ),
           ),
-
-          //base64 인코딩 한 것   -   child: Text('${Get.arguments}'),
 
           Pinned.fromPins(
             Pin(start: 41.0, end: 41.0),
@@ -83,7 +135,22 @@ class _chk_pledge extends State<chk_pledge> {
                     await image.toByteData(format: ui.ImageByteFormat.png);
                 var pngBytes = byteData!.buffer.asUint8List();
                 var bs64 = base64Encode(pngBytes);
-                //다음페이지로 사진 bs64, 군번, 부대코드, 단말기 시리얼, imei까지 다같이 넘기기
+                Fluttertoast.showToast(
+                    msg:
+                        "dognum : ${Get.arguments['dognum']} unitnum : ${Get.arguments['unitnum']} imei : $_imeiNo",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+                //다음페이지로 사진 bs64, 군번, 부대코드, imei까지 다같이 넘기기(finish_signup.dart)
+                Get.toNamed("/finish_signup", arguments: {
+                  "dognum": '${Get.arguments['dognum']}',
+                  "unitnum": '${Get.arguments['unitnum']}',
+                  "bs64": '${Get.arguments['bs64']}',
+                  "imei": '$_imeiNo',
+                });
               },
               style: ElevatedButton.styleFrom(
                 primary:
@@ -107,6 +174,8 @@ class _chk_pledge extends State<chk_pledge> {
               ),
             ),
           ),
+          //alerdialog 실행시 보안서약서 안보이는 오류있음. 수정필
+
           Pinned.fromPins(
             Pin(start: 41.0, end: 43.0),
             Pin(size: 49.0, end: 20.0),

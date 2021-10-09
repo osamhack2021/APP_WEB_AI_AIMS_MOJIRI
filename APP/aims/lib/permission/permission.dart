@@ -1,4 +1,4 @@
-import 'package:aims/join/input_dognum.dart';
+import 'package:aims/signup/input_dognum.dart';
 import 'package:aims/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
@@ -10,9 +10,11 @@ import 'package:permission_handler/permission_handler.dart';
 
 Future<bool> _getStatus() async {
   Map<Permission, PermissionStatus> status =
-      await [Permission.storage, Permission.camera].request();
+      await [Permission.storage, Permission.camera, Permission.phone].request();
 
-  if (await Permission.camera.isGranted && await Permission.storage.isGranted) {
+  if (await Permission.camera.isGranted &&
+      await Permission.storage.isGranted &&
+      await Permission.phone.isGranted) {
     return true;
   } else {
     return false;

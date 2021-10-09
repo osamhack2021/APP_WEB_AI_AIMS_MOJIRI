@@ -1,4 +1,3 @@
-import 'package:aims/join/input_unitnum.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:get/get.dart';
@@ -68,7 +67,7 @@ class _input_dognum extends State<input_dognum> {
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 41.0, end: 43.0),
+            Pin(start: 38.0, end: 38.0),
             Pin(size: 49.0, end: 48.0),
             child: ElevatedButton(
               onPressed: () {

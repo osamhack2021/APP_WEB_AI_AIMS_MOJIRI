@@ -1,8 +1,15 @@
 import 'dart:async';
 
-import 'package:aims/join/input_dognum.dart';
-import 'package:aims/join/input_unitnum.dart';
+import 'package:aims/login/viewimage.dart';
+import 'package:aims/signup/chk_info.dart';
+import 'package:aims/signup/finish_signup.dart';
+import 'package:aims/signup/input_dognum.dart';
+import 'package:aims/signup/input_unitnum.dart';
 import 'package:aims/login/login.dart';
+import 'package:aims/signup/pledge/pledge_1.dart';
+import 'package:aims/signup/pledge/pledge_2.dart';
+import 'package:aims/signup/pledge/pledge_3.dart';
+import 'package:aims/signup/pledge/signature.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -11,7 +18,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'package:aims/permission/permission.dart';
 
-import 'join/chk_pledge.dart';
+import 'signup/pledge/chk_pledge.dart';
 
 //앱 최초 실행 시 권한 확인
 Future<bool> _checkStatus() async {
@@ -36,6 +43,13 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/chk_pledge', page: () => chk_pledge()),
         GetPage(name: '/input_unitnum', page: () => input_unitnum()),
+        GetPage(name: '/chk_info', page: () => chk_info()),
+        GetPage(name: '/pledge_1', page: () => pledge_1()),
+        GetPage(name: '/pledge_2', page: () => pledge_2()),
+        GetPage(name: '/pledge_3', page: () => pledge_3()),
+        GetPage(name: '/signature', page: () => signature()),
+        GetPage(name: '/finish_signup', page: () => finish_signup()),
+        GetPage(name: '/view_image', page: () => viewimage()),
       ],
       debugShowCheckedModeBanner: false,
       home: Home(),
@@ -94,7 +108,7 @@ class _Home extends State<Home> {
         child: Container(
           child: Center(
               child: new Image.asset('image/logo_white_kor.png',
-                  width: 350, height: 350)),
+                  width: 250, height: 250)),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,

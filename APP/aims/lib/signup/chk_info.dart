@@ -1,10 +1,12 @@
 import 'dart:convert';
 
-import 'package:aims/join/pledge_1.dart';
+import 'package:aims/signup/pledge/pledge_1.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+
+import 'input_dognum.dart';
 
 class Data {
   String team;
@@ -111,7 +113,10 @@ class _chk_info extends State<chk_info> {
             child: ElevatedButton(
               onPressed: () {
                 setState(() {
-                  Get.to(pledge_1());
+                  Get.toNamed("/pledge_1", arguments: {
+                  "dognum": '${Get.arguments['dognum']}',
+                  "unitnum": '${Get.arguments['unitnum']}',
+                });
                 });
               },
               style: ElevatedButton.styleFrom(
@@ -141,7 +146,7 @@ class _chk_info extends State<chk_info> {
             Pin(size: 49.0, end: 20.0),
             child: TextButton(
               onPressed: () {
-                setState(() {});
+                Get.off(() => input_dognum());
               },
               child: Text("아니오, 다시 입력할게요"),
               style: TextButton.styleFrom(

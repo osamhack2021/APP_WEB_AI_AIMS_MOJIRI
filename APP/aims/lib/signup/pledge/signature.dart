@@ -4,8 +4,8 @@ import 'dart:async';
 import 'dart:ui' as ui;
 import 'dart:typed_data';
 
-import 'package:aims/join/input_unitnum.dart';
-import 'package:aims/join/chk_pledge.dart';
+import 'package:aims/signup/input_unitnum.dart';
+import 'package:aims/signup/pledge/chk_pledge.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -81,7 +81,11 @@ class _signature extends State<signature> {
                     await image.toByteData(format: ui.ImageByteFormat.png);
                 var pngBytes = byteData!.buffer.asUint8List();
                 var bs64 = base64Encode(pngBytes);
-                Get.toNamed('/chk_pledge', arguments: bs64);
+                Get.toNamed("/chk_pledge", arguments: {
+                  "dognum": '${Get.arguments['dognum']}',
+                  "unitnum": '${Get.arguments['unitnum']}',
+                  "bs64": bs64,
+                });
               },
               style: ButtonStyle(
                   textStyle: MaterialStateProperty.all(TextStyle(

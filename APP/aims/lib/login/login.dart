@@ -1,19 +1,46 @@
-import 'package:aims/join/join_1.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'dart:async';
+import 'dart:ui' as ui;
+import 'dart:typed_data';
+
+import 'package:aims/login/validator.dart';
+import 'package:aims/main.dart';
+import 'package:aims/signup/join_1.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:aims/login/validator.dart';
+import 'package:image_picker/image_picker.dart';
 
 class login extends StatefulWidget {
   @override
   _login createState() => _login();
 }
 
-class _login extends State<login> {
+class _login extends State<login> with Validator {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   var _dog_num;
   var _unit_num;
+  var bs64;
+  PickedFile? _image;
+
+  Future getCameraImage() async {
+    var image =
+        await ImagePicker.platform.pickImage(source: ImageSource.camera);
+    setState(() {
+      _image = image!;
+    });
+    /*
+    ui.Image image2 = Image.file(File(image!.path)) as ui.Image;
+    ByteData? byteData =
+        await image2.toByteData(format: ui.ImageByteFormat.png);
+    var pngBytes = byteData!.buffer.asUint8List();
+    bs64 = base64Encode(pngBytes);
+    */
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +67,7 @@ class _login extends State<login> {
             child: TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: '군번',
+                hintText: '군번',
               ),
               validator: (value) {
                 if (value!.length < 1) {
@@ -59,13 +86,13 @@ class _login extends State<login> {
             child: TextFormField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: '부대코드',
+                hintText: '부대코드',
               ),
               validator: (value) {
-                if (value!.length < 1) {
-                  return '부대코드를 입력하세요';
-                }
-                return null;
+                if (value!.isEmpty)
+                  return '부대코드를 입력하세요.';
+                else
+                  return null;
               },
               onSaved: (value) {
                 _unit_num = value;
@@ -78,10 +105,9 @@ class _login extends State<login> {
             child: ElevatedButton(
               key: _formKey,
               onPressed: () {
-                if (!_formKey.currentState!.validate()) {
-                  return;
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
                 }
-                _formKey.currentState!.save();
                 setState(() {
                   //chk_login_or_join();
                 });
@@ -129,6 +155,20 @@ class _login extends State<login> {
               textHeightBehavior:
                   TextHeightBehavior(applyHeightToFirstAscent: false),
               textAlign: TextAlign.center,
+            ),
+          ),
+          Pinned.fromPins(
+            Pin(start: 38.0, end: 38.0),
+            Pin(size: 49.0, start: 500.0),
+            child: FloatingActionButton(
+              onPressed: () async {
+                await getCameraImage();
+                setState(() {
+                  Get.toNamed("/view_image", arguments: {
+                    "image": _image!.path,
+                  });
+                });
+              },
             ),
           ),
         ],
