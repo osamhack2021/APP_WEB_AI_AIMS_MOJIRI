@@ -22,7 +22,7 @@ for line in result:
     text+=line[1][0]+"\n"
 
 inhibit_list = list()
-f = open("../inhibit_list.csv",'r')
+f = open("inhibit_list.csv",'r')
 rea = csv.reader(f)
 for row in rea:
     inhibit_list.append(row)
@@ -81,4 +81,4 @@ blurred_original_image = cv2.GaussianBlur(orig_imginal, (251,251), 0)
 layered_image = np.where(mapping != (0,0,0), orig_imginal, blurred_original_image)
 
 im_rgb = cv2.cvtColor(layered_image, cv2.COLOR_BGR2RGB)
-cv2.imwrite("./temp/result.jpg", im_rgb)
+cv2.imwrite("temp/result.jpg", im_rgb)
