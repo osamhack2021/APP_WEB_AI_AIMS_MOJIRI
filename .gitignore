@@ -1,2 +1,3 @@
-WEB/node_modules
-WEB/config/db.js
+WEB/backend/node_modules
+WEB/backend/config/*
+WEB/frontend/node_modules
