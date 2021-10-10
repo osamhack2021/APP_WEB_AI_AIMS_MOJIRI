@@ -32,6 +32,10 @@ exports.signUp = (req, res) => {
         }
 
         var name = data.name;
+        console.log(req.body.pledge);
+        var base64Pledge = JSON.stringify(req.body.pledge);
+        // console.log(base64Pledge);
+        var blobPledge = Buffer.from(base64Pledge, "base64");
 
         const userOptions = {
             uri: 'http://localhost:3000/users/create',
@@ -40,6 +44,7 @@ exports.signUp = (req, res) => {
                 name: name,
                 serial_num: req.body.serial_num,
                 unit_num: req.body.unit_num,
+                security_pledge: blobPledge,
             },
             json: true
         }

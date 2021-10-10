@@ -17,8 +17,8 @@ class User extends Sequelize.Model {
                 allowNull: false,
             },
             security_pledge: {
-                type: Sequelize.STRING(20),
-                allowNull: true,
+                type: Sequelize.BLOB('long'),
+                allowNull: false,
             },
         }, {
             sequelize,

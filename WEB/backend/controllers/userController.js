@@ -5,8 +5,6 @@
 // https://loy124.tistory.com/374
 
 const { User } = require('../models');
-const { Device } = require('../models');
-const { Soldier } = require('../models');
 const { Op } = require('sequelize');
 
 // Create User
@@ -22,10 +20,13 @@ exports.create = (req, res) => {
         return;
     }
 
+    var pledge = JSON.stringify(req.body.security_pledge);
+
     const user = {
         name: req.body.name,
         serial_num: req.body.serial_num,
         unit_num: req.body.unit_num,
+        security_pledge: pledge,
     };
 
     User

@@ -1,14 +1,17 @@
-const { spawn } = require('child_process');
-
+const { exec } = require('child_process');
 
 exports.create = (req, res) => {
-    console.log('enter');
+    var base64 = req.body.image;
+    var blob = Buffer.from(base64, "base64");
 
-    const python = spawn('python3', ['./print.py']);
-    python.stdout.on('data', (data) => {
-        console.log('Picture create access');
 
-        console.log(data.toString());
-        res.send(data.toString());
-    })
-};
+    // run AI code 
+    exec('/home/osam22/APP_WEB_AI_AIMS_MOJIRI/AI/run.sh /home/osam22/APP_WEB_AI_AIMS_MOJIRI/AI/images/image5.jpg', (error, stdout, stderr) => {
+        console.log(stdout);
+        console.log(stderr);
+
+        if (error !== null) {
+            console.log(`exec error: ${error}`);
+        }
+    });
+}
