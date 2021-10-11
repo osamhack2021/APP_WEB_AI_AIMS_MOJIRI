@@ -63,7 +63,7 @@ $ yarn start or npm run start
 	</td>
 </tr>
 <tr>
-<td width="120" align="center"><img src="" width="60" height="60"></td>
+<td width="120" align="center"><img src="image/RohSuIn.jpg" width="60" height="60"></td>
 <td width="100" align="center">노수인</td>
 <td width="200">백엔드 개발<br>관리자Web개발</td>
 
