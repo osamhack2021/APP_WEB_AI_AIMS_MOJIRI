@@ -5,9 +5,9 @@ module.exports = {
     await queryInterface.bulkInsert('admins', [
       {
         name: '나보안',
-        unit_num: 1234,
+        unit_num: '1234',
         serial_num: '14-12345678',
-        password: 1234,
+        password: '1234',
         permission: 3
       },
     ])

@@ -23,11 +23,11 @@ class Soldier extends Sequelize.Model {
                 allowNull: false,
             },
             unit_num: {
-                type: Sequelize.INTEGER(20),
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
             position_num: {
-                type: Sequelize.INTEGER(20),
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
         }, {

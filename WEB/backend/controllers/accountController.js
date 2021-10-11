@@ -22,7 +22,7 @@ exports.signUp = (req, res) => {
             unit_num: req.body.unit_num,
         },
     })
-    .then(async data => {
+    .then(data => {
         if (data == null) {
             res.status(400).send({
                 message: 'User is not exist!'
@@ -32,10 +32,7 @@ exports.signUp = (req, res) => {
         }
 
         var name = data.name;
-        console.log(req.body.pledge);
-        var base64Pledge = JSON.stringify(req.body.pledge);
-        // console.log(base64Pledge);
-        var blobPledge = Buffer.from(base64Pledge, "base64");
+        var pledge = JSON.stringify(req.body.pledge);
 
         const userOptions = {
             uri: 'http://localhost:3000/users/create',
@@ -44,7 +41,7 @@ exports.signUp = (req, res) => {
                 name: name,
                 serial_num: req.body.serial_num,
                 unit_num: req.body.unit_num,
-                security_pledge: blobPledge,
+                security_pledge: pledge,
             },
             json: true
         }
@@ -60,19 +57,27 @@ exports.signUp = (req, res) => {
             },
             json: true
         }
-    
-        var userResult = await request.post(userOptions);
-        var deviceResult = await request.post(deviceOptions);
 
-        if (!userResult || !deviceResult) {
-            res.status(500).send({
-                message: 'signUp User failure!'
+        request.post(userOptions, (error, response, body) => {
+            if (response.statusCode == 500) {
+                console.log('Error occur!');
+                
+                res.status(500).send(false);
+                return;
+            }
+
+            request.post(deviceOptions, (error, response, body) => {
+                if (response.statusCode == 500) {
+                    console.log('Error occur!');
+
+                    res.status(500).send(false);
+                    return;
+                }
+
+                console.log('SignUp done!');
+                res.send(true);
             });
-
-            return;
-        }
-
-        res.send('Success!');
+        });
     })
     .catch(err => {
         res.status(500).send({

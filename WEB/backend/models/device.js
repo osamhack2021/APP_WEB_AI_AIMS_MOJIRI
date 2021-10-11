@@ -12,7 +12,7 @@ class Device extends Sequelize.Model {
                 allowNull: false,
             },
             imei_num: {
-                type: Sequelize.INTEGER.UNSIGNED,
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
             camera_active: {

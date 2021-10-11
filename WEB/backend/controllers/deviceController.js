@@ -24,7 +24,9 @@ exports.create = (req, res) => {
     .create(device)
     .then(data => {
         console.log("Device is created!");
-        return true;
+        
+        res.status(200).send(true);
+        return;;
     })
     .catch(err => {
         res.status(500).send({

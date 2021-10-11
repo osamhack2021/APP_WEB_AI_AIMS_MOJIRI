@@ -12,7 +12,7 @@ exports.create = (req, res) => {
     console.log('User create access!');
 
     // Error case
-    if (!req.body.serial_num || !req.body.unit_num || !req.body.name) {
+    if (!req.body.serial_num || !req.body.unit_num || !req.body.name) {    
         res.status(400).send({
             message: 'Specific Data is empty!'
         });
@@ -33,11 +33,13 @@ exports.create = (req, res) => {
     .create(user)
     .then(data => {
         console.log("User is created!");
-        return true;
+    
+        res.status(200).send(true);
+        return;
     })
     .catch(err => {
         res.status(500).send({
-            message: err.message || 'Create user failure'
+            message: err.message
         });
 
         return;
@@ -60,29 +62,5 @@ exports.findAll = (req, res) => {
 
 // Read one user
 exports.findOne = (req, res) => {
-    User
-        .findOne({
-            where: {
-                serial_num: req.body.serial_num,
-            },
-        })
-        .then(data => {
-            if (data == null) {
-                res.status(400).send({
-                    message: 'User is not exist!'
-                });
-
-                return;
-            }
-
-            console.log(req.body.name + ' user signIn access');
-            res.send(true);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || 'Retrieve user failure'
-            });
-
-            return;
-        });
+    
 };

@@ -13,11 +13,11 @@ class User extends Sequelize.Model {
                 unique: true
             },
             unit_num: {
-                type: Sequelize.INTEGER.UNSIGNED,
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
             security_pledge: {
-                type: Sequelize.BLOB('long'),
+                type: Sequelize.TEXT,
                 allowNull: false,
             },
         }, {
