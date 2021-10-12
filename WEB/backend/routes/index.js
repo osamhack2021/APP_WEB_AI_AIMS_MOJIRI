@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const path = require('path')
 
 var accountController = require('../controllers/accountController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/dashboard');
+  console.log(__dirname + '/../views/login.html');
+
+  res.render('login');
 });
 
 router.post('/signUp', accountController.signUp);

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <div class="wrap">
+        <form method="post" id = "loginForm" action="http://20.194.62.71/signIn">
+            <div class="login">
+                <h2>로그인</h2>
+                <div class="login_id">
+                    <h4>군번</h4>
+                    <input type="text" name="loginId" id="loginId" placeholder="Serial Number">
+                </div>
+                <div class="login_pw">
+                    <h4>비밀번호</h4>
+                    <input type="password" name="loginPw" id="loginPw" placeholder="Password">
+                </div>
+                <button class="submit" type="submit" value="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

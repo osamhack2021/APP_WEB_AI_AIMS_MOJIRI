@@ -17,7 +17,7 @@ class Admin extends Sequelize.Model {
                 unique: true
             },
             password: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING(20),
                 allowNull: false,
             },
             permission: {
