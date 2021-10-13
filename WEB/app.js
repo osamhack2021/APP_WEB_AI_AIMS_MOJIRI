@@ -13,9 +13,11 @@ var { sequelize } = require('./models'); // db.sequelize
 
 // Router Setting
 var indexRouter = require('./routes/index');
+var adminsRouter = require('./routes/admins');
 var usersRouter = require('./routes/users');
 var devicesRouter = require('./routes/devices');
-var pictureRouter = require('./routes/pictures');
+var picturesRouter = require('./routes/pictures');
+
 
 var app = express();
 
@@ -47,8 +49,9 @@ sequelize.sync({ force: true })
 // Router Connection
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/admins', adminsRouter);
 app.use('/devices', devicesRouter);
-app.use('/pictures', pictureRouter);
+app.use('/pictures', picturesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

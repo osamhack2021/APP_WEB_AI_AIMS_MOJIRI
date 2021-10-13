@@ -30,6 +30,10 @@ class Soldier extends Sequelize.Model {
                 type: Sequelize.STRING(20),
                 allowNull: false,
             },
+            rank: {
+                type: Sequelize.STRING(20),
+                allowNull: false
+            }
         }, {
             sequelize,
             timestamps: false,

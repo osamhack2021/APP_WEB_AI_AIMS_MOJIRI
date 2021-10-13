@@ -48,6 +48,8 @@ exports.create = (req, res) => {
 
 // Read all user
 exports.findAll = (req, res) => {
+    console.log('findAll access');
+
     User
         .findAll()
         .then(data => {

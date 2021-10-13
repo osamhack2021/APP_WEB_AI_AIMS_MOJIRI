@@ -7,7 +7,12 @@ const userController = require('../controllers/userController.js');
 router.post('/create', userController.create);
 
 // read all user
-router.get('/', userController.findAll);
+router.get('/', function(req, res, next) {
+    console.log('users access');
+
+    let users = userController.findAll;
+    res.render('users', { data: users });
+});
 
 // read specific user
 router.get('/:serial_num', userController.findOne);

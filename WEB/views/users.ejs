@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./users.css">
+</head>
+<body>
+    <h2>Responsive Table</h2>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>군번</th>
+                    <th>단말기</th>
+                    <th>보안서약서</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach(function (value) { %>
+                <tr>
+                    <td>번호 : <%= value.id  %></td>    // value 의 id 값
+                    <td>이름 : <%= value.name  %></td>  // value 의 des 값
+                    <td>군번 : <%= value.serial_num  %></td>    // value 의 id 값
+                    <td>단말기 : <%= value.device  %></td>  // value 의 des 값
+                    <td>보안서약서 : <%= value.pledge  %></td>    // value 의 id 값
+                </tr>
+                <% }); %>
+            </tbody>
+
+            <tbody></tbody>
+        </table>
+    </div>
+</body>

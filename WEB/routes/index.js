@@ -5,8 +5,6 @@ var accountController = require('../controllers/accountController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(__dirname + '/../views/login.html');
-
   res.render('login');
 });
 

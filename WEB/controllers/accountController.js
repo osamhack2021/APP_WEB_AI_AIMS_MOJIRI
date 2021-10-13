@@ -1,5 +1,6 @@
 const { Soldier } = require('../models');
 const { Admin } = require('../models');
+const { User } = require('../models');
 const { Op } = require('sequelize');
 const request = require('request');
 
@@ -92,7 +93,7 @@ exports.signUp = (req, res) => {
 exports.signIn = (req, res) => {
     console.log("signIn access!");
 
-    Admin
+    User
     .findOne({
         where: {
             serial_num: req.body.loginId,

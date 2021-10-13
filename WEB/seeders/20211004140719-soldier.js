@@ -10,6 +10,7 @@ module.exports = {
         serial_num: '20-76077320',
         unit_num: '1234',
         position_num: '123',
+        rank: '상병',
       },
       {
         name: '김시원',
@@ -18,6 +19,7 @@ module.exports = {
         serial_num: '20-12345678',
         unit_num: '5678',
         position_num: '456',
+        rank: '이병',
       },
       {
         name: '이재승',
@@ -26,6 +28,7 @@ module.exports = {
         serial_num: '20-98765432',
         unit_num: '4321',
         position_num: '321' ,
+        rank: '일병'
       },
     ])
   },
