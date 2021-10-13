@@ -22,18 +22,15 @@
                 </tr>
             </thead>
             <tbody>
-                <% users.forEach(function (value) { %>
-                <tr>
-                    <td>번호 : <%= value.id  %></td>    // value 의 id 값
-                    <td>이름 : <%= value.name  %></td>  // value 의 des 값
-                    <td>군번 : <%= value.serial_num  %></td>    // value 의 id 값
-                    <td>단말기 : <%= value.device  %></td>  // value 의 des 값
-                    <td>보안서약서 : <%= value.pledge  %></td>    // value 의 id 값
-                </tr>
-                <% }); %>
-            </tbody>
-
-            <tbody></tbody>
+                    <tr>
+                        <td><%= data.id  %></td> 
+                        <td><%= data.name  %></td>
+                        <td><%= data.serial_num  %></td>   
+                        <td><%= data.device  %></td>  
+                        <td><%= data.pledge  %></td>  
+                    </tr>
+            <tbody>
         </table>
     </div>
 </body>
+</html>
