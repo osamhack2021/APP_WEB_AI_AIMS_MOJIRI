@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<resources>
+    <string name="app_name">DeviceAdmin</string>
+    <string name="device_admin_description">안드로이드 관리자</string>
+    <string name="text_actionCamera">카메라 사용 제한</string>
+    <string name="text_actionAdminActive">관리자 권한</string>
+</resources>
