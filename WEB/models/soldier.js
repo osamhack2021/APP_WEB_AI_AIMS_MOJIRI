@@ -17,10 +17,12 @@ class Soldier extends Sequelize.Model {
             social_security_num: {
                 type: Sequelize.STRING(100),
                 allowNull: false,
+                unique: true
             },
             serial_num: {
                 type: Sequelize.STRING(20),
                 allowNull: false,
+                unique: true
             },
             unit_num: {
                 type: Sequelize.STRING(20),

@@ -7,18 +7,8 @@ const userController = require('../controllers/userController.js');
 router.post('/create', userController.create);
 
 // read all user
-router.get('/', function(req, res, next) {
-    console.log('users access');
-    let users = {'id': '1', 'name': '노수인', 'serial_num': '20-76077320', 'device': '1234', 'pledge': 'true'};
-
-    // let users = userController.findAll;
-
-    console.log(users);
-
-    res.render('users', {
-        data: users
-    });
-    // res.render('users');
+router.get('/', (req, res) => {
+    userController.findAll(req, res);
 });
 
 // read specific user
