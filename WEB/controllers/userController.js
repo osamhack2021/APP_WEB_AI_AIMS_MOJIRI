@@ -33,8 +33,6 @@ exports.create = (req, res) => {
     User
     .create(user)
     .then(data => {
-        console.log("User is created!");
-    
         res.status(200).send(true);
         return;
     })
@@ -51,7 +49,7 @@ exports.create = (req, res) => {
 
 // Read all user
 exports.findAll = (req, res) => {
-    console.log('findAll access');
+    console.log('User findAll access');
 
     User
     .findAll()

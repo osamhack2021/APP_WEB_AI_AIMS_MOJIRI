@@ -10,7 +10,7 @@ const request = require('request');
 
 // admin login
 exports.signIn = (req, res) => {
-    console.log("signIn access!");
+    console.log("Admin signIn access!");
 
     Admin
     .findOne({

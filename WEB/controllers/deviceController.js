@@ -23,8 +23,6 @@ exports.create = (req, res) => {
     Device
     .create(device)
     .then(data => {
-        console.log("Device is created!");
-        
         res.status(200).send(true);
         return;;
     })

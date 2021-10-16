@@ -10,7 +10,6 @@ class User extends Sequelize.Model {
             serial_num: {
                 type: Sequelize.STRING(20),
                 allowNull: false,
-                unique: true
             },
             unit_num: {
                 type: Sequelize.STRING(20),
@@ -21,7 +20,7 @@ class User extends Sequelize.Model {
                 allowNull: false
             },
             security_pledge: {
-                type: Sequelize.TEXT,
+                type: Sequelize.TEXT('long'),
                 allowNull: false,
             },
         }, {

@@ -6,7 +6,7 @@ const request = require('request');
 
 // Create User
 exports.signUp = (req, res) => {
-    console.log('signUp access');
+    console.log('User SignUp access!');
 
     // Error case
     if (!req.body.serial_num || !req.body.unit_num || !req.body.name) {
@@ -58,7 +58,6 @@ exports.signUp = (req, res) => {
                 return;
             }
 
-            console.log('SignUp done!');
             res.send(true);
         });
     });
@@ -66,7 +65,7 @@ exports.signUp = (req, res) => {
 
 // login User
 exports.signIn = (req, res) => {
-    console.log("signIn access!");
+    console.log('User signIn access');
 
     User
     .findOne({
@@ -109,6 +108,8 @@ exports.signIn = (req, res) => {
 }
 
 exports.findInfo = (req, res) => {
+    console.log('User findInfo access');
+
     Soldier
     .findOne({
         where: {
