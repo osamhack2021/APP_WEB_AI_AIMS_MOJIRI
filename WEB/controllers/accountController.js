@@ -1,6 +1,5 @@
 const { Soldier } = require('../models');
 const { User } = require('../models');
-const { Device } = require('../models');
 const { Op } = require('sequelize');
 const request = require('request');
 
@@ -24,20 +23,10 @@ exports.signUp = (req, res) => {
             name: req.body.name,
             serial_num: req.body.serial_num,
             unit_num: req.body.unit_num,
-            device_num: req.body.imei_num,
-            security_pledge: req.body.pledge,
-        },
-        json: true
-    }
-    
-    const deviceOptions = {
-        uri: 'http://localhost:3000/devices/create',
-        method: 'POST',
-        body: {
-            owner_num: req.body.serial_num,
-            model_num: req.body.model_num,
             imei_num: req.body.imei_num,
-            camera_active: req.body.camera_active,
+            model_num: req.body.model_num,
+            camera_is: req.body.camera_active,
+            security_pledge: req.body.pledge,
         },
         json: true
     }
@@ -50,16 +39,8 @@ exports.signUp = (req, res) => {
             return;
         }
 
-        request.post(deviceOptions, (error, response, body) => {
-            if (response.statusCode == 500) {
-                console.log('Error occur!');
-
-                res.status(500).send(false);
-                return;
-            }
-
-            res.send(true);
-        });
+        res.status(200).send(true);
+        return;
     });
 }
 
@@ -72,6 +53,7 @@ exports.signIn = (req, res) => {
         where: {
             serial_num: req.body.serial_num,
             unit_num: req.body.unit_num,
+            imei_num: req.body.imei_num,
         },
     })
     .then(data => {
@@ -80,23 +62,9 @@ exports.signIn = (req, res) => {
 
             return;
         }
-
-        Device
-        .findOne({
-            where: {
-                owner_num: req.body.serial_num,
-                imei_num: req.body.imei_num,
-            },
-        })
-        .then(data => {
-            if (data == null) {
-                res.status(400).send('Device is not exist');
-                return;
-            } else {
-                res.status(200).send(true);
-                return;
-            }
-        })
+                
+        res.status(200).send(true);
+        return;
     })
     .catch(err => {
         res.status(500).send({
@@ -107,6 +75,7 @@ exports.signIn = (req, res) => {
     });
 }
 
+// for find Information
 exports.findInfo = (req, res) => {
     console.log('User findInfo access');
 
@@ -127,6 +96,7 @@ exports.findInfo = (req, res) => {
         }
 
         res.status(200).send({name: data.name, rank: data.rank});
+        return;
     })
     .catch(err => {
         res.status(500).send({

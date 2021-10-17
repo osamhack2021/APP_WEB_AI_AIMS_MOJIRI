@@ -26,7 +26,9 @@ exports.create = (req, res) => {
         name: req.body.name,
         serial_num: req.body.serial_num,
         unit_num: req.body.unit_num,
-        device_num: req.body.device_num,
+        imei_num: req.body.imei_num,
+        model_num: req.body.model_num,
+        camera_is: req.body.camera_is,
         security_pledge: pledge,
     };
 
@@ -54,10 +56,8 @@ exports.findAll = (req, res) => {
     User
     .findAll()
     .then(data => {
-        console.log(data[0]);
-
         res.render('users', {
-            data: data[0]
+            data: data
         });
     })
     .catch(err => {

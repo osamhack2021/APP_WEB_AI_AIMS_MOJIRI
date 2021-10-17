@@ -5,10 +5,10 @@
   font-family: "Noto Sans KR", sans-serif;
 }
 
-/* body {
-  background-image: url("./logo.jpg");
-  background-size: width=100%, height=100%;
-} */
+body {
+  background-image: url("./background.jpg");
+  background-size: cover;
+}
 
 a {
   text-decoration: none;

@@ -15,9 +15,17 @@ class User extends Sequelize.Model {
                 type: Sequelize.STRING(20),
                 allowNull: false,
             },
-            device_num: {
+            imei_num: {
                 type: Sequelize.STRING(20),
                 allowNull: false
+            },
+            model_num: {
+                type: Sequelize.STRING(20),
+                allowNull: false,
+            },
+            camera_is: {
+                type: Sequelize.BOOLEAN,
+                allowNull: false,
             },
             security_pledge: {
                 type: Sequelize.TEXT('long'),

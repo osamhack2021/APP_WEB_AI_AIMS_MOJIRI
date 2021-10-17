@@ -1,4 +1,3 @@
-const { Soldier } = require('../models');
 const { Admin } = require('../models');
 const { Op } = require('sequelize');
 const request = require('request');

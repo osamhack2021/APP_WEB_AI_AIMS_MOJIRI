@@ -15,7 +15,6 @@ var { sequelize } = require('./models'); // db.sequelize
 var indexRouter = require('./routes/index');
 var adminsRouter = require('./routes/admins');
 var usersRouter = require('./routes/users');
-var devicesRouter = require('./routes/devices');
 var picturesRouter = require('./routes/pictures');
 
 
@@ -39,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // DB Connection
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
   .then(() => {
     console.log('DB Connected');
   }).catch((err) => {
@@ -50,7 +49,6 @@ sequelize.sync({ force: true })
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admins', adminsRouter);
-app.use('/devices', devicesRouter);
 app.use('/pictures', picturesRouter);
 
 // catch 404 and forward to error handler
