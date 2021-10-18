@@ -6,7 +6,7 @@
 body {
   font-family: Helvetica;
   -webkit-font-smoothing: antialiased;
-  background-image: url("./background.jpg");
+  background-image: url("./pattern.png");
   background-size: cover;
 }
 
