@@ -2,7 +2,6 @@ const Sequelize = require('sequelize');
 const Soldier = require('./soldier.js');
 const User = require('./user.js');
 const Admin = require('./admin.js');
-const Image = require('./image.js');
 
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config')[env];
@@ -15,16 +14,13 @@ db.sequelize = sequelize;
 db.Soldier = Soldier;
 db.User = User;
 db.Admin = Admin;
-db.Image = Image;
 
 Soldier.init(sequelize);
 User.init(sequelize);
 Admin.init(sequelize);
-Image.init(sequelize);
 
 Soldier.associate(db);
 User.associate(db);
 Admin.associate(db);
-Image.associate(db);
 
 module.exports = db;
