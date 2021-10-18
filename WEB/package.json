@@ -1,19 +1,23 @@
 {
-  "name": "mojiri_backend",
-  "version": "1.0.0",
-  "description": "for mojiri backend",
-  "main": "app.js",
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "npm start"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bigpie1367/APP_WEB_AI_AIMS_MOJIRI.git"
-  },
-  "author": "bigpie1367",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bigpie1367/APP_WEB_AI_AIMS_MOJIRI/issues"
-  },
-  "homepage": "https://github.com/bigpie1367/APP_WEB_AI_AIMS_MOJIRI#readme"
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "^3.1.6",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  }
 }
