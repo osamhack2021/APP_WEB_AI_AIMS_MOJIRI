@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./users.css">
 </head>
 <body>
-    <h2>Responsive Table</h2>
+    <h2>사용자 정보</h2>
     <div class="table-wrapper">
         <table class="fl-table">
             <thead>
@@ -17,18 +17,24 @@
                     <th>번호</th>
                     <th>이름</th>
                     <th>군번</th>
-                    <th>단말기</th>
+                    <th>단말기 번호</th>
+                    <th>모델명</th>
+                    <th>카메라 상태</th>
                     <th>보안서약서</th>
                 </tr>
             </thead>
             <tbody>
+                <% for (let i = 0; i < data.length; i++) { %>
                     <tr>
-                        <td><%= data.id  %></td> 
-                        <td><%= data.name  %></td>
-                        <td><%= data.serial_num  %></td>   
-                        <td><%= data.device  %></td>  
-                        <td><%= data.security_pledge  %></td>  
+                        <td><%= data[i].id  %></td> 
+                        <td><%= data[i].name  %></td>
+                        <td><%= data[i].serial_num  %></td>   
+                        <td><%= data[i].imei_num  %></td> 
+                        <td><%= data[i].model_num  %></td> 
+                        <td><%= data[i].camera_is  %></td>
+                        <td><a href="">보안서약서</td>   
                     </tr>
+                <% } %>
             <tbody>
         </table>
     </div>

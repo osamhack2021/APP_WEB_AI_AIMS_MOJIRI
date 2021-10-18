@@ -1,3 +1,2 @@
-WEB/backend/node_modules
-WEB/backend/config/*
-WEB/frontend/node_modules
+WEB/node_modules
+WEB/config/*
