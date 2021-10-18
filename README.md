@@ -31,11 +31,22 @@
 - 추후 설명
 
 ## 설치 안내 (Installation Process)
+1. Github Clone하기
 ```bash
-$ git clone git주소
-$ yarn or npm install
-$ yarn start or npm run start
+$ git clone http://github.com/osamhack2021/APP_WEB_AI_AIMS_MOJIRI
 ```
+
+2. Backend Module 설치하기
+```
+$ cd APP_WEB_AI_AIMS_MOJIRI/WEB
+$ npm install
+```
+
+3. Server 실행하기
+```
+$ sudo npm start
+```
+
  
 ## 팀 정보 (Team Information)
 <table width="700">
