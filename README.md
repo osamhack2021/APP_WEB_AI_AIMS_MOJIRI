@@ -74,7 +74,7 @@ $ sudo npm start
 	</td>
 </tr>
 <tr>
-<td width="120" align="center"><img src="image/rohhsuin.png" width="80" height="80"></td>
+<td width="120" align="center"><img src="image/rohsuin.png" width="80" height="80"></td>
 <td width="100" align="center">노수인</td>
 <td width="200">백엔드 개발<br>관리자Web개발</td>
 
