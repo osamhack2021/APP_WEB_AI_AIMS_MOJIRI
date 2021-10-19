@@ -38,7 +38,7 @@ $ git clone http://github.com/osamhack2021/APP_WEB_AI_AIMS_MOJIRI
 
 2. Backend Module 설치하기
 ```
-$ cd APP_WEB_AI_AIMS_MOJIRI/WEB
+$ cd APP_WEB_AI_AIMS_MOJIRI/WEB\(BE\)
 $ npm install
 ```
 
@@ -47,6 +47,11 @@ $ npm install
 $ sudo npm start
 ```
 
+4. Test DB Data 
+```
+$ cd APP_WEB_AI_AIMS_MOJIRI/WEB\(BE\)
+$ npx sequelize-cli db:seed:all;
+```
  
 ## 팀 정보 (Team Information)
 <table width="700">
