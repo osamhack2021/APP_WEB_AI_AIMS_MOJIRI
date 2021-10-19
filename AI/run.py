@@ -34,7 +34,7 @@ trained_image_width=512
 mean_subtraction_value=127.5
 image = np.array(Image.open(IMAGE_PATH))
 orig_imginal = np.array(image)
-target = 'person'
+target = ['bicycle','bird','bottle','cat','chair','cow','diningtable','dog','horse','person','pottedplant','sheep','sofa']
 
 LABEL_NAMES = [
     'background', 'aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus',
@@ -63,8 +63,9 @@ if pad_y > 0:
 labels = np.array(Image.fromarray(labels.astype('uint8')).resize((h, w)))
 
 person_not_person_mapping = deepcopy(image)
-person_not_person_mapping[labels != LABEL_NAMES.index(target)] = 0
-person_not_person_mapping[labels == LABEL_NAMES.index(target)] = 255
+for i in target:
+    person_not_person_mapping[labels != LABEL_NAMES.index(i)] = 0
+    person_not_person_mapping[labels == LABEL_NAMES.index(i)] = 255
 
 mapping_resized = cv2.resize(person_not_person_mapping, (orig_imginal.shape[1], orig_imginal.shape[0]), Image.ANTIALIAS)
 
