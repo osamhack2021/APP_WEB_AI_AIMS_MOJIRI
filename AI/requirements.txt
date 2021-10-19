@@ -1,8 +1,0 @@
-keras
-tensorflow
-pillow
-numpy
-matplotlib
-tqdm
-paddlepaddle
-paddleocr
