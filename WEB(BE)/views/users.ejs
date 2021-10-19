@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./users.css">
+</head>
+<body>
+    <h2>사용자 정보</h2>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>군번</th>
+                    <th>단말기 번호</th>
+                    <th>모델명</th>
+                    <th>카메라 상태</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <td><%= data[i].id  %></td> 
+                        <td><%= data[i].name  %></td>
+                        <td><%= data[i].serial_num  %></td>   
+                        <td><%= data[i].imei_num  %></td> 
+                        <td><%= data[i].model_num  %></td> 
+                        <td><%= data[i].camera_is  %></td>
+                    </tr>
+                <% } %>
+            <tbody>
+        </table>
+    </div>
+</body>
+</html>
