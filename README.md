@@ -27,8 +27,16 @@
 ### Front-end(APP)
 - 추후 설명
 
-### Ai
-- 추후 설명
+### AI
+- python 3.6.9
+
+- tensorflow 2.6.0
+
+- keras 2.6.0
+
+- paddleocr 2.3.0.1
+
+- model : google deeplab v3+
 
 ## 설치 안내 (Installation Process)
 1. Github Clone하기
@@ -38,7 +46,15 @@ $ git clone http://github.com/osamhack2021/APP_WEB_AI_AIMS_MOJIRI
 
 2. Backend Module 설치하기
 ```
-$ cd APP_WEB_AI_AIMS_MOJIRI/WEB\(BE\)
+$ cd APP_WEB_AI_AIMS_MOJIRI
+
+AI
+$ cd /AI\(BE\)
+$ pip3 install -r requirements.txt
+$ ./setup.sh
+
+WEB
+$ cd ../WEB\(BE\)
 $ npm install
 ```
 
