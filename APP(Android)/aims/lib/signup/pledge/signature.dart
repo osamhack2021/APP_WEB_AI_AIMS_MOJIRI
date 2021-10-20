@@ -5,7 +5,6 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_signaturepad/signaturepad.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hand_signature/signature.dart';
 

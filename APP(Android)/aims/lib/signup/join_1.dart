@@ -1,5 +1,4 @@
 import 'package:aims/signup/input_dognum.dart';
-import 'package:aims/signup/pledge/signature.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:get/get.dart';
