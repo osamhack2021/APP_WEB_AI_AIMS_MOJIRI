@@ -11,10 +11,10 @@
 <table align="center">
 	<tr>
 		<td>
-			<a href="https://www.youtube.com"><img src="image/youtube.png"></a>
+			<a href="https://youtu.be/ipAjxo-JdNE"><img src="image/youtube.png"></a>
 		</td>
 		<td>
-			<a href=""><img src="image/gitbook.png"></a>
+			<a href="https://siwon.gitbook.io/aims"><img src="image/gitbook.png"></a>
 		</td>
 	</tr>
 </table>
