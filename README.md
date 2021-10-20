@@ -90,7 +90,6 @@ $ cd APP_WEB_AI_AIMS_MOJIRI
 
 AI
 $ cd /AI\(BE\)
-$ pip3 install -r requirements.txt
 $ ./setup.sh
 
 WEB
