@@ -37,7 +37,7 @@
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 ### WEB
-ECMAScript 6 지원 브라우저 사용
+ECMAScript 6 지원 브라우저 사용<br>
 권장: Google Chrome 버젼 77 이상<br>
 ### APP
 Android : minSdkVersion 21 (Android 5.0)
