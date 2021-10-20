@@ -108,21 +108,12 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       body: new Center(
         child: Container(
           child: Center(
-              child: new Image.asset('image/logo_white_kor.png',
-                  width: 250, height: 250)),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(0xffe6ffd7),
-                Color(0xff536349),
-              ],
-            ),
-          ),
+              child: new Image.asset('image/main_logo_white.png',
+                  width: 300, height: 100)),
         ),
       ),
     );

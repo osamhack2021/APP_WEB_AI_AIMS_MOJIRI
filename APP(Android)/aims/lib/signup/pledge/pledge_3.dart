@@ -1,9 +1,6 @@
-import 'package:aims/signup/input_unitnum.dart';
 import 'package:aims/login/login.dart';
-import 'package:aims/signup/pledge/signature.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class pledge_3 extends StatefulWidget {
@@ -15,7 +12,7 @@ class _pledge_3 extends State<pledge_3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color(0xff212121),
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
@@ -26,7 +23,7 @@ class _pledge_3 extends State<pledge_3> {
               style: TextStyle(
                 fontFamily: 'NanumGothic',
                 fontSize: 25,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.left,
@@ -53,7 +50,7 @@ class _pledge_3 extends State<pledge_3> {
               style: TextStyle(
                 fontFamily: 'NanumGothic',
                 fontSize: 12,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
               ),
               textAlign: TextAlign.left,
             ),
@@ -65,16 +62,18 @@ class _pledge_3 extends State<pledge_3> {
               onPressed: () {
                 setState(() {
                   Get.toNamed("/signature", arguments: {
-                  "dognum": '${Get.arguments['dognum']}',
-                  "unitnum": '${Get.arguments['unitnum']}',
-                });
+                    "name": '${Get.arguments['name']}',
+                    "rank": '${Get.arguments['rank']}',
+                    "dognum": '${Get.arguments['dognum']}',
+                    "unitnum": '${Get.arguments['unitnum']}',
+                  });
                 });
               },
               style: ElevatedButton.styleFrom(
                 primary:
-                    const Color(0xff536349), //change background color of button
+                    const Color(0xffffffff), //change background color of button
                 onPrimary:
-                    const Color(0xffffffff), //change text color of button
+                    const Color(0xff212121), //change text color of button
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
@@ -121,7 +120,7 @@ class _pledge_3 extends State<pledge_3> {
               },
               child: Text("아니오, 동의하지 않습니다"),
               style: TextButton.styleFrom(
-                  primary: const Color(0xff536349),
+                  primary: const Color(0xffffffff),
                   textStyle: TextStyle(
                     fontSize: 15,
                     fontFamily: "NanumGothic",

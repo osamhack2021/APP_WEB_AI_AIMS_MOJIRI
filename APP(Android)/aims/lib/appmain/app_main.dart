@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class app_main extends StatefulWidget {
   @override
@@ -12,7 +14,8 @@ class app_main extends StatefulWidget {
 
 class _app_main extends State<app_main> {
   bool? CameraActive;
-
+  late final String name;
+  late final String unit;
   static const MethodChannel _channel =
       const MethodChannel('com.example.aims/camera');
 
@@ -44,50 +47,37 @@ class _app_main extends State<app_main> {
   }
 
   Future<void> initPlatformState() async {
-    await disableCamera();
+    await disableCameraFinishTaking();
     await setUsbEnable();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color(0xff212121),
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
             Pin(start: 80.0, end: 80.0),
-            Pin(size: 60.0, start: 24.0),
+            Pin(size: 70.0, start: 24.0),
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: const AssetImage('image/main_logo.png'),
+                  image: const AssetImage('image/main_logo_white.png'),
                   fit: BoxFit.contain,
                 ),
               ),
             ),
           ),
           Pinned.fromPins(
-            Pin(size: 64.0, middle: 0.5),
-            Pin(size: 20.0, start: 115.0),
+            Pin(size: 100.0, middle: 0.5),
+            Pin(size: 40.0, start: 105.0),
             child: Text(
-              '계급 성명',
+              '환영합니다!',
               style: TextStyle(
                 fontFamily: 'Segoe UI',
                 fontSize: 15,
-                color: const Color(0xff000000),
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 30.0, middle: 0.5),
-            Pin(size: 20.0, start: 90.0),
-            child: Text(
-              '소속',
-              style: TextStyle(
-                fontFamily: 'Segoe UI',
-                fontSize: 15,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
               ),
               textAlign: TextAlign.center,
             ),
@@ -128,7 +118,7 @@ class _app_main extends State<app_main> {
                 primary:
                     const Color(0xffffffff), //change background color of button
                 onPrimary:
-                    const Color(0xff536349), //change text color of button
+                    const Color(0xff212121), //change text color of button
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
@@ -154,7 +144,7 @@ class _app_main extends State<app_main> {
               style: TextStyle(
                 fontFamily: 'Segoe UI',
                 fontSize: 25,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
                 fontWeight: FontWeight.w700,
               ),
               textAlign: TextAlign.center,
@@ -217,25 +207,37 @@ class _app_main extends State<app_main> {
           Pinned.fromPins(
             Pin(size: 112.0, middle: 0.5019),
             Pin(size: 20.0, end: 52.0),
-            child: Text(
-              'FAQ   |  공지사항  |  차단해제',
-              style: TextStyle(
-                fontFamily: 'Segoe UI',
-                fontSize: 15,
-                color: const Color(0xff000000),
+            child: GestureDetector(
+              onTap: () {
+                Fluttertoast.showToast(
+                    msg: '추후 국방모바일보안과 연계하여 제공될 예정입니다.',
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.black87,
+                    textColor: Colors.white,
+                    fontSize: 16.0);
+              },
+              child: Text(
+                'NFC 차단해제',
+                style: TextStyle(
+                  fontFamily: 'Segoe UI',
+                  fontSize: 15,
+                  color: const Color(0xffffffff),
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           Pinned.fromPins(
             Pin(size: 208.0, middle: 0.503),
             Pin(size: 20.0, end: 16.0),
             child: Text(
-              '국군통합모바일보안체계 v0.0.0',
+              '국군통합모바일보안체계 v1.0.0',
               style: TextStyle(
                 fontFamily: 'Segoe UI',
                 fontSize: 15,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
               ),
               textAlign: TextAlign.center,
             ),
@@ -269,6 +271,6 @@ class _app_main extends State<app_main> {
 }
 
 const String _svg_uxk4j4 =
-    '<svg viewBox="0.5 180.5 375.0 1.0" ><path transform="translate(0.5, 180.5)" d="M 0 0 L 375 0" fill="none" stroke="#707070" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+    '<svg viewBox="0.5 180.5 375.0 1.0" ><path transform="translate(0.5, 180.5)" d="M 0 0 L 375 0" fill="none" stroke="#ffffff" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
 const String _svg_yfxa =
-    '<svg viewBox="0.0 574.5 375.0 1.0" ><path transform="translate(0.0, 574.5)" d="M 0 0 L 375 0" fill="none" stroke="#707070" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';
+    '<svg viewBox="0.0 574.5 375.0 1.0" ><path transform="translate(0.0, 574.5)" d="M 0 0 L 375 0" fill="none" stroke="#ffffff" stroke-width="1" stroke-miterlimit="4" stroke-linecap="butt" /></svg>';

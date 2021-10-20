@@ -19,7 +19,7 @@ class _input_unitnum extends State<input_unitnum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color(0xff212121),
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
@@ -30,7 +30,7 @@ class _input_unitnum extends State<input_unitnum> {
               style: TextStyle(
                 fontFamily: 'NanumGothic',
                 fontSize: 25,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.left,
@@ -53,22 +53,28 @@ class _input_unitnum extends State<input_unitnum> {
             Pin(start: 38.0, end: 38.0),
             Pin(size: 55.0, start: 130.0),
             child: TextFormField(
+              style: TextStyle(color: Colors.white),
+              controller: TextController,
               decoration: InputDecoration(
-                labelText: '부대코드',
+                filled: true,
+                fillColor: Colors.grey.shade900,
+                labelText: "부대코드",
+                labelStyle: TextStyle(
+                  color: const Color(0xffffffff),
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
               ),
               textInputAction: TextInputAction.next,
-              controller: TextController,
-              validator: (String? value) {
-                if (value!.isEmpty) {
-                  return '부대코드를 입력하세요.';
-                }
-                return null;
-              },
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 38.0, end: 38.0),
-            Pin(size: 49.0, end: 48.0),
+            Pin(start: 25.0, end: 25.0),
+            Pin(size: 49.0, end: 25.0),
             child: ElevatedButton(
               onPressed: () {
                 //입력한 군번과 부대코드에 일치하는 정보 있는지 확인 후 라우트
@@ -84,8 +90,16 @@ class _input_unitnum extends State<input_unitnum> {
                     fontFamily: "NanumGothic",
                   )),
                   backgroundColor:
-                      MaterialStateProperty.all(const Color(0xff536349))),
-              child: Text("확인"),
+                      MaterialStateProperty.all(const Color(0xffffffff))),
+              child: Text(
+                '확인',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: const Color(0xff000000),
+                  fontFamily: "NanumGothic",
+                ),
+              ),
             ),
           ),
         ],

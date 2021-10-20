@@ -33,15 +33,18 @@ public void configureFlutterEngine(FlutterEngine flutterEngine) {
             new MethodChannel.MethodCallHandler() {
                 @Override
                 public void onMethodCall(MethodCall call, MethodChannel.Result result) {
-                    if (call.method.equals("setDisableCamera")) {
+                    if (call.method.equals("setPermission")) {
                         Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
                         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, compName);
-                        intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "You should enable the app!");
+                        intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, "앱을 사용하기 위해 앱에 기기관리 권한을 부여하세요.");
                         startActivityForResult(intent, RESULT_ENABLE);
+                    } else if(call.method.equals("setDisableCamera")) {
+                        deviceManager.setCameraDisabled(compName, true);
                     } else if(call.method.equals("setEnableCamera")) {
                         deviceManager.setCameraDisabled(compName, false);
                     } else if(call.method.equals("setDisableCameraFinishTaking")) {
-                        deviceManager.setCameraDisabled(compName, true);
+                        if(deviceManager.getCameraDisabled(compName) == false)
+                            deviceManager.setCameraDisabled(compName, true);
                     } else if(call.method.equals("getCameraDisabled")) {
                         result.success(deviceManager.getCameraDisabled(compName));
                     } else if(call.method.equals("setUsbEnable")) {
@@ -58,7 +61,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     switch (requestCode) {
         case RESULT_ENABLE:
             if (resultCode == Activity.RESULT_OK) {
-                deviceManager.setCameraDisabled(compName, true);
+                //deviceManager.setCameraDisabled(compName, true);
             }
             return;
     }

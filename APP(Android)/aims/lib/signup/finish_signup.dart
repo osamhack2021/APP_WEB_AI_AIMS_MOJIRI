@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:aims/login/login.dart';
-import 'package:aims/signup/pledge/pledge_3.dart';
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:get/get.dart';
@@ -15,20 +12,9 @@ class _finish_signup extends State<finish_signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff212121),
       body: Stack(
         children: <Widget>[
-          new Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Color(0xffe6ffd7),
-                  Color(0xff536349),
-                ],
-              ),
-            ),
-          ),
           Pinned.fromPins(
             Pin(size: 210.0, middle: 0.503),
             Pin(size: 81.0, start: 109.0),
@@ -67,7 +53,7 @@ class _finish_signup extends State<finish_signup> {
                 primary:
                     const Color(0xffffffff), //change background color of button
                 onPrimary:
-                    const Color(0xff536349), //change text color of button
+                    const Color(0xff212121), //change text color of button
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),

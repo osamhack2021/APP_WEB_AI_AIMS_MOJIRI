@@ -17,23 +17,14 @@ import 'package:zoom_widget/zoom_widget.dart';
 
 Future<void> _postRequest(String name, String dognum, String unitnum,
     String modelnum, String imeinum, String pledge) async {
-  Fluttertoast.showToast(
-      msg: '서버에 요청',
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      timeInSecForIosWeb: 1,
-      backgroundColor: Colors.red,
-      textColor: Colors.white,
-      fontSize: 16.0);
-
   Map data = {
     "name": name,
     "serial_num": dognum,
     "unit_num": unitnum,
+    "pledge": pledge,
     "model_num": modelnum,
     "imei_num": imeinum,
-    "camera_active": false,
-    "pledge": pledge,
+    "camera_active": true,
   };
 
   var body = json.encode(data);
@@ -44,34 +35,26 @@ Future<void> _postRequest(String name, String dognum, String unitnum,
       body: body);
 
   if (response.statusCode == 201 || response.statusCode == 200) {
-    Fluttertoast.showToast(
-        msg: 'response Body : ' + response.body + '서버통신양호 response 200, 201',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0);
     //return _getJson.fromJson(jsonDecode(response.body));
   } else if (response.statusCode == 504) {
     Fluttertoast.showToast(
         msg: 'response Body : ' + response.body + '서버통신미흡 response 504',
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0);
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.black54,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
     throw Exception('Failed to contect Server.');
   } else {
     Fluttertoast.showToast(
         msg: '코드 올바르지 않음.',
         toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0);
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.black54,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
     throw Exception('Failed to contect Server.');
   }
 }
@@ -116,7 +99,7 @@ class _chk_pledge extends State<chk_pledge> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color(0xff212121),
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
@@ -127,7 +110,7 @@ class _chk_pledge extends State<chk_pledge> {
               style: TextStyle(
                 fontFamily: 'NanumGothic',
                 fontSize: 20,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.left,
@@ -143,6 +126,8 @@ class _chk_pledge extends State<chk_pledge> {
               child: RepaintBoundary(
                 key: globalKey,
                 child: pledge_text(
+                  name: '${Get.arguments['name']}',
+                  rank: '${Get.arguments['rank']}',
                   dognum: '${Get.arguments['dognum']}',
                   unitnum: '${Get.arguments['unitnum']}',
                   bs64: '${Get.arguments['bs64']}',
@@ -165,7 +150,7 @@ class _chk_pledge extends State<chk_pledge> {
                 var bs64 = base64Encode(pngBytes);
                 setState(() async {
                   _postRequest(
-                      '노수인',
+                      '${Get.arguments['name']}',
                       '${Get.arguments['dognum']}',
                       '${Get.arguments['unitnum']}',
                       '$_modelName',
@@ -177,9 +162,9 @@ class _chk_pledge extends State<chk_pledge> {
               },
               style: ElevatedButton.styleFrom(
                 primary:
-                    const Color(0xff536349), //change background color of button
+                    const Color(0xffffffff), //change background color of button
                 onPrimary:
-                    const Color(0xffffffff), //change text color of button
+                    const Color(0xff212121), //change text color of button
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
@@ -208,18 +193,14 @@ class _chk_pledge extends State<chk_pledge> {
                   showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
-                      title: const Text('정말 동의하지 않으시나요?'),
-                      content: const Text('동의하지 않으시면 로그인 화면으로 되돌아갑니다.'),
+                      title: const Text('동의하지 않았습니다.'),
+                      content: const Text('로그인 화면으로 되돌아갑니다.'),
                       actions: <Widget>[
-                        TextButton(
-                          onPressed: () => Navigator.of(context).pop(),
-                          child: const Text('다시 생각해볼게요'),
-                        ),
                         TextButton(
                           onPressed: () {
                             Get.offAll(() => login());
                           },
-                          child: const Text('동의하지 않음'),
+                          child: const Text('확인'),
                         ),
                       ],
                     ),
@@ -228,7 +209,7 @@ class _chk_pledge extends State<chk_pledge> {
               },
               child: Text("아니오, 동의하지 않습니다"),
               style: TextButton.styleFrom(
-                  primary: const Color(0xff536349),
+                  primary: const Color(0xffffffff),
                   textStyle: TextStyle(
                     fontSize: 15,
                     fontFamily: "NanumGothic",

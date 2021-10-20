@@ -19,7 +19,7 @@ class _input_dognum extends State<input_dognum> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color(0xff212121),
       body: Stack(
         children: <Widget>[
           Pinned.fromPins(
@@ -30,7 +30,7 @@ class _input_dognum extends State<input_dognum> {
               style: TextStyle(
                 fontFamily: 'NanumGothic',
                 fontSize: 25,
-                color: const Color(0xff000000),
+                color: const Color(0xffffffff),
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.left,
@@ -53,22 +53,28 @@ class _input_dognum extends State<input_dognum> {
             Pin(start: 38.0, end: 38.0),
             Pin(size: 55.0, start: 130.0),
             child: TextFormField(
+              style: TextStyle(color: Colors.white),
               controller: TextController,
               decoration: InputDecoration(
-                labelText: '군번',
+                filled: true,
+                fillColor: Colors.grey.shade900,
+                labelText: "군번",
+                labelStyle: TextStyle(
+                  color: const Color(0xffffffff),
+                ),
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
+                ),
               ),
               textInputAction: TextInputAction.next,
-              validator: (String? value) {
-                if (value!.isEmpty) {
-                  return '군번을 입력하세요.';
-                }
-                return null;
-              },
             ),
           ),
           Pinned.fromPins(
-            Pin(start: 38.0, end: 38.0),
-            Pin(size: 49.0, end: 48.0),
+            Pin(start: 25.0, end: 25.0),
+            Pin(size: 49.0, end: 25.0),
             child: ElevatedButton(
               onPressed: () {
                 setState(() {
@@ -82,8 +88,16 @@ class _input_dognum extends State<input_dognum> {
                     fontFamily: "NanumGothic",
                   )),
                   backgroundColor:
-                      MaterialStateProperty.all(const Color(0xff536349))),
-              child: Text("확인"),
+                      MaterialStateProperty.all(const Color(0xffffffff))),
+              child: Text(
+                '확인',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: const Color(0xff000000),
+                  fontFamily: "NanumGothic",
+                ),
+              ),
             ),
           ),
         ],
