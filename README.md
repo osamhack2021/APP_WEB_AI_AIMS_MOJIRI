@@ -38,7 +38,7 @@
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 ### WEB
 ECMAScript 6 지원 브라우저 사용
-권장: Google Chrome 버젼 77 이상
+권장: Google Chrome 버젼 77 이상<br>
 ### APP
 Android : minSdkVersion 21 (Android 5.0)
 ### AI
@@ -51,19 +51,19 @@ apt install needed
 <img src="image/techstack.png" width="500">
 <details>
     <summary><strong>WEB 오픈소스 목록</strong> </summary>
-	cookie-parser 1.4.4
-	cors 2.8.5
-	debug 2.6.9
-	ejs 3.1.6
-	express 4.16.1
-	http-errors 1.6.3
-	morgan 1.9.1
-	mysql 2.18.1
-	mysql2 2.3.0
-	path 0.12.7
-	request 2.88.2
-	sequelize 6.6.5
-	sequelize-cli 6.2.0
+	cookie-parser 1.4.4<br>
+	cors 2.8.5<br>
+	debug 2.6.9<br>
+	ejs 3.1.6<br>
+	express 4.16.1<br>
+	http-errors 1.6.3<br>
+	morgan 1.9.1<br>
+	mysql 2.18.1<br>
+	mysql2 2.3.0<br>
+	path 0.12.7<br>
+	request 2.88.2<br>
+	sequelize 6.6.5<br>
+	sequelize-cli 6.2.0<br>
 </details>
 <details>
     <summary><strong>APP 오픈소스 목록</strong> </summary>
