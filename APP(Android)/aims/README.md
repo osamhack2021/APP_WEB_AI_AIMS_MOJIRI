@@ -1,4 +1,4 @@
-# aims
+# AIMS 국군통합모바일보안체계 Application
 
 A new Flutter project.
 
