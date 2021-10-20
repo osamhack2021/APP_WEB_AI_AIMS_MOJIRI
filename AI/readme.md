@@ -43,7 +43,7 @@ Status: on-going
     - 실행 코드
 
 ### 사용법 (+테스트)
-0. setup.sh 실행권한 부여 및 \r 을 삭제한다.
+1. setup.sh 실행권한 부여 및 \r 을 삭제한다.
 ```bash
 chmod 755 setup.sh
 sed -i 's/\r$//' setup.sh
@@ -53,7 +53,7 @@ sed -i 's/\r$//' setup.sh
 # setup.sh
 ./setup.sh
 ```
-2. *run.sh*를 통해 실행한다.
+3. *run.sh*를 통해 실행한다.
 
 ```bash
 ./run.sh [IMAGE_PATH] 
