@@ -36,7 +36,8 @@
 - 추후 설명
 
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
-- 추후 설명
+### APP
+Android : minSdkVersion 21 (Android 5.0)
 
 ## 기술 스택 (Technique Used) 
 <img src="image/techstack.png" width="500">
