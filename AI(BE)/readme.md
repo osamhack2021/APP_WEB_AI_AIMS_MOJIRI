@@ -43,17 +43,12 @@ Status: on-going
     - 실행 코드
 
 ### 사용법 (+테스트)
-
-1. *requirements.txt*를 통해 패키지들을 설치한다.
-```bash
-pip3 install -r requirements.txt
-```
-2. *setup.sh*를 통해 작업환경을 세팅한다.
+1. *setup.sh*를 통해 작업환경을 세팅한다.
 ```bash
 # setup.sh
 ./setup.sh
 ```
-3. *run.sh*를 통해 실행한다.
+2. *run.sh*를 통해 실행한다.
 
 ```bash
 ./run.sh [IMAGE_PATH] 
