@@ -10,6 +10,7 @@ exports.create = async (req, res) => {
 
     // run AI code 
     await exec('sh /home/osam22/APP_WEB_AI_AIMS_MOJIRI/AI/run.sh /home/osam22/APP_WEB_AI_AIMS_MOJIRI/WEB/temp/target.jpg', (error, stdout, stderr) => {
+
         if (error !== null) {
             console.log(`exec error: ${error}`);
         } else {
