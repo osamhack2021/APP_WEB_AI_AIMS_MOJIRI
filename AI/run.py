@@ -84,4 +84,4 @@ blurred_original_image = cv2.GaussianBlur(orig_imginal, (251,251), 0)
 layered_image = np.where(mapping != (0,0,0), orig_imginal, blurred_original_image)
 
 im_rgb = cv2.cvtColor(layered_image, cv2.COLOR_BGR2RGB)
-cv2.imwrite("/home/osam22/APP_WEB_AI_AIMS_MOJIRI/WEB(BE)/temp/result.jpg", im_rgb)
+cv2.imwrite("/home/osam22/APP_WEB_AI_AIMS_MOJIRI/WEB/temp/result.jpg", im_rgb)
