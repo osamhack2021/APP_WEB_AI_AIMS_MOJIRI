@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 화면 최적화 -->
+<meta name="viewport" content="width-device-width", initial-scale="1">
+<!-- 루트 폴더에 부트스트랩을 참조하는 링크 -->
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/footer.css">
+<title>AIMS</title>
+</head>
+<body>
+	<nav class="navbar navbar-default"> <!-- 네비게이션 -->
+		<div class="navbar-header"> 	<!-- 네비게이션 상단 부분 -->
+			<!-- 네비게이션 상단 박스 영역 -->
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<!-- 이 삼줄 버튼은 화면이 좁아지면 우측에 나타난다 -->
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- 상단 바에 제목이 나타나고 클릭하면 main 페이지로 이동한다 -->
+			<a class="navbar-brand" href="/users">AIMS</a>
+		</div>
+		<!-- 게시판 제목 이름 옆에 나타나는 메뉴 영역 -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<!-- <li class="active"><a href="users.ejs">메인</a></li> -->
+			</ul>
+			<!-- 헤더 우측에 나타나는 드랍다운 영역 -->
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false"><%= data[0].name %> 님<span class="caret"></span></a>
+					<!-- 드랍다운 아이템 영역 -->
+					<!--
+					<ul class="dropdown-menu">
+						<li><a href="logoutAction.jsp">로그아웃</a></li>
+					</ul>
+					-->
+				</li>
+			</ul>
+    	</div>
+    </nav>       
+    
+    <div class="container">
+		<div class="row">
+			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
+				<thead>
+					<tr>
+						<th style="background-color: #eeeeee; text-align: center;">번호</th>
+						<th style="background-color: #eeeeee; text-align: center;">이름</th>
+						<th style="background-color: #eeeeee; text-align: center;">군번</th>
+                        <th style="background-color: #eeeeee; text-align: center;">카메라 상태</th>
+			<th style="background-color: #eeeeee; text-align: center;">상세정보</th>
+		</tr>
+				</thead>
+				<tbody>
+                    <% for (let i = 0; i < data.length; i++) { %>
+                        <tr>
+                            <td><%= data[i].id  %></td> 
+                            <td><%= data[i].name  %></td>
+                            <td><%= data[i].serial_num  %></td>   
+                            <td><%= data[i].camera_is  %></td>
+			    <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal"<%= +i %>>
+					확인하기
+				  </button></td>
+                        </tr>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal"<%= +i %> tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title" id="myModalLabel">상세정보</h4>
+									</div>
+									<div class="modal-body">
+										<p>모델명 : <%= data[i].imei_num  %></p> 
+										<p>단말기 번호 : <%= data[i].model_num  %></p> 
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+                    <% } %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">&copy; Team MOJIRI All rights reserved.</span>
+        </div>
+    </footer>   
+	<!-- 부트스트랩 참조 영역 -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+</html>
