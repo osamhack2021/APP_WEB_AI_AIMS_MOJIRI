@@ -37,7 +37,7 @@
 - 추후 설명
 
 ## 기술 스택 (Technique Used) 
-<img src="image/teckstack.png">
+<img src="image/techstack.png" width="800">
 
 ### AI
 - python 3.6.9
