@@ -127,6 +127,8 @@ $ cd APP_WEB_AI_AIMS_MOJIRI
 
 AI
 $ cd /AI
+$ chmod 755 setup.sh
+$ sed -i 's/\r$//' setup.sh
 $ ./setup.sh
 
 WEB
