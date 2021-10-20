@@ -7,7 +7,8 @@
 	<img src="https://img.shields.io/github/license/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
 </p>
 ## 프로젝트 소개 영상
-![Logo] (image/youtube.png)
+<img src="image/youtube.png">
+
 ## 팀 소개
 ![Logo] (image/person.png)
 ## 프로젝트 소개
