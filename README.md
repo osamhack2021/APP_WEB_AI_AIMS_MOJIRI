@@ -57,8 +57,8 @@ Android : minSdkVersion 21 (Android 5.0)
 </details>
 <details>
     <summary><strong>AI 오픈소스 목록</strong> </summary>
-	paddleocr 2.3.0.1<br>
-	model : google deeplab v3+
+	- paddleocr 2.3.0.1<br>
+	- model : google deeplab v3+
 </details>
 
 ## 설치 안내 (Installation Process)
@@ -89,7 +89,7 @@ $ git clone http://github.com/osamhack2021/APP_WEB_AI_AIMS_MOJIRI
 $ cd APP_WEB_AI_AIMS_MOJIRI
 
 AI
-$ cd /AI\(BE\)
+$ cd /AI
 $ ./setup.sh
 
 WEB
