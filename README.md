@@ -19,7 +19,9 @@
 	</tr>
 </table>
 
-<p align="center">이미지 클릭 시 해당 페이지로 이동합니다.</p><br><br><br>
+
+<br>
+<br>
 <br>
 
 ## 팀 소개
