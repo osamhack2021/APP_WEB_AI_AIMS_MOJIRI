@@ -69,12 +69,12 @@ $ git clone http://github.com/osamhack2021/APP_WEB_AI_AIMS_MOJIRI
 ```
 2. 프로젝트 빌드하기
 ```bash
-$ cd /APP\(Android\)
+$ cd 'APP(Android)'/aims
 $ Flutter build apk
 ```
 3. APK 설치하기
 ```bash
-$ cd /APP\(Android\)/build/app/outputs/flutter-apk
+$ cd 'APP(Android)'/aims/build/app/outputs/flutter-apk
 $ app_release.apk 다운로드 후 설치
 ```
 
