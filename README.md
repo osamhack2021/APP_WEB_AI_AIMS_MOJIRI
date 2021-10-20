@@ -36,6 +36,15 @@
 ## 기능 설명
 - 추후 설명
 
+## 기대효과
+<img src="image/get_.png">
+
+## 향후 발전방향
+<img src="image/future_.png">
+
+## 왜 AIMS여야 하는가
+<img src="image/now_.png">
+
 ## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
 ### WEB
 ECMAScript 6 지원 브라우저 사용<br>
