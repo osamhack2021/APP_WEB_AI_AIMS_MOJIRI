@@ -4,7 +4,8 @@
 	<img src="https://img.shields.io/github/downloads/osamhack2021/APP_WEB_AI_AIMS_MOJIRI/total?style=flat-square" />
 	<img src="https://img.shields.io/github/stars/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
 	<img src="https://img.shields.io/github/forks/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
-	<img src="https://img.shields.io/github/license/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
+	<img src="https://img.shields.io/github/license/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" /><br>
+	<a href="https://sun-bottle-cdc.notion.site/5feecf30d55c43cfaf3d9faa0cfb788bE"><img src="https://img.shields.io/badge/Notion-blue?style=for-the-badge&logo" />
 </p>
 
 <h2 align="center">프로젝트 설명</h2>
