@@ -94,7 +94,7 @@ $ pip3 install -r requirements.txt
 $ ./setup.sh
 
 WEB
-$ cd ../WEB\(BE\)
+$ cd /WEB\(BE\)
 $ npm install
 ```
 
