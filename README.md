@@ -11,15 +11,15 @@
 <table align="center">
 	<tr>
 		<td>
-			<a href="https://www.youtube.com"><img src="image/youtube_small.png"></a>
+			<a href="https://www.youtube.com"><img src="image/youtube.png"></a>
 		</td>
 		<td>
-			<a href=""><img src="image/youtube_small.png"></a>
+			<a href=""><img src="image/gitbook.png"></a>
 		</td>
 	</tr>
 </table>
 
-<h4 align="center">이미지 클릭 시 youtube 영상으로 이동합니다.</h4><br><br><br>
+<p align="center">이미지 클릭 시 해당 페이지로 이동합니다.</p><br><br><br>
 <br>
 
 ## 팀 소개
