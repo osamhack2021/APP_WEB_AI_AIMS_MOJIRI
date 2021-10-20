@@ -37,20 +37,45 @@
 - 추후 설명
 
 ## 기술 스택 (Technique Used) 
-<img src="image/techstack.png" width="800">
-
-### AI
-- python 3.6.9
-
-- tensorflow 2.6.0
-
-- keras 2.6.0
-
-- paddleocr 2.3.0.1
-
-- model : google deeplab v3+
+<img src="image/techstack.png" width="500">
+<details>
+    <summary><strong>APP 오픈소스 목록</strong> </summary>
+	get: ^4.3.8<br>
+	permission_handler: ^8.1.6<br>
+	adobe_xd: ^2.0.0+1<br>
+	fluttertoast: ^8.0.8<br>
+	hand_signature: ^2.1.0+2<br>
+	zoom_widget: ^0.2.1<br>
+	http: ^0.13.4<br>
+	device_information: ^0.0.4<br>
+	camera: ^0.9.4+1<br>
+	video_player: ^2.2.5<br>
+	image_gallery_saver: ^1.7.1
+</details>
+<details>
+    <summary><strong>AI 오픈소스 목록</strong> </summary>
+	paddleocr 2.3.0.1<br>
+	model : google deeplab v3+
+</details>
 
 ## 설치 안내 (Installation Process)
+### APP
+1. Github Clone하기
+```bash
+$ git clone http://github.com/osamhack2021/APP_WEB_AI_AIMS_MOJIRI
+```
+2. 프로젝트 빌드하기
+```bash
+$ cd /APP\(Android\)
+$ Flutter build apk
+```
+3. APK 설치하기
+```bash
+$ cd /APP\(Android\)/build/app/outputs/flutter-apk
+$ app_release.apk 다운로드 후 설치
+```
+
+### WEB & Backend
 1. Github Clone하기
 ```bash
 $ git clone http://github.com/osamhack2021/APP_WEB_AI_AIMS_MOJIRI
