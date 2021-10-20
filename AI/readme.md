@@ -1,4 +1,4 @@
-# mojiri ai readme.md
+# mojiri ai(backend) readme.md
 
 Date: 2021년 10월 6일
 Status: on-going
