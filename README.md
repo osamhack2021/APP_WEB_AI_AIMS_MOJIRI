@@ -34,7 +34,10 @@
 
 
 ## 기능 설명
-- 추후 설명
+   <table><tbody><tr>
+   <td width="50%"><h4 align="center"><img src="image/app_main.PNG" width="75%" height="75%"></a><br><br>Login Page</h4></td>
+   <td width="50%"><h4 align="center"><img src="image/app_main_2.PNG" width="75%" height="75%"></a><br><br>Main Page</h4></td>
+    </tr></tbody></table>
 
 ## 기대효과
 <img src="image/get_.png">
