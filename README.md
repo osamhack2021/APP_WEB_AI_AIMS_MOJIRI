@@ -35,8 +35,16 @@
 
 ## 기능 설명
    <table><tbody><tr>
-   <td width="50%"><h4 align="center"><img src="image/app_main.PNG" width="75%" height="75%"></a><br><br>Login Page</h4></td>
-   <td width="50%"><h4 align="center"><img src="image/app_main_2.PNG" width="75%" height="75%"></a><br><br>Main Page</h4></td>
+   <td width="50%"><h4 align="center"><img src="image/app_main.PNG" width="50%" height="50%"></a><br><br>Login Page</h4></td>
+   <td width="50%"><h4 align="center"><img src="image/app_main_2.PNG" width="50%" height="50%"></a><br><br>Main Page</h4></td>
+    </tr></tbody></table>
+    <table><tbody><tr>
+   <td width="50%"><h4 align="center"><img src="https://files.gitbook.com/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FhOfRg8OYxqnnjlOV4WI7%2Fuploads%2FHLE59hhClUjzAYsTydQi%2Fimage.png?alt=media&token=5aea70c0-abfa-4e01-9e4d-f3e6ccc941c8" width="50%" height="50%"></a><br><br>Disable Camera</h4></td>
+   <td width="50%"><h4 align="center"><img src="image/join_1.PNG" width="50%" height="50%"></a><br><br>Join</h4></td>
+    </tr></tbody></table>
+    <table><tbody><tr>
+   <td width="50%"><h4 align="center"><img src="image/using.PNG" width="50%" height="50%"></a><br><br>Using Camera</h4></td>
+   <td width="50%"><h4 align="center"><img src="image/finish.PNG" width="50%" height="50%"></a><br><br>Finish Camera</h4></td>
     </tr></tbody></table>
 
 ## 기대효과
@@ -127,8 +135,6 @@ $ cd APP_WEB_AI_AIMS_MOJIRI
 
 AI
 $ cd /AI
-$ chmod 755 setup.sh
-$ sed -i 's/\r$//' setup.sh
 $ ./setup.sh
 
 WEB
