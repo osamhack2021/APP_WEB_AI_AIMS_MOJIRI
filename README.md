@@ -37,14 +37,7 @@
 - 추후 설명
 
 ## 기술 스택 (Technique Used) 
-### Server(back-end)
-- 추후 설명
- 
-### Front-end(Web)
-- 추후 설명
-
-### Front-end(APP)
-- 추후 설명
+<img src="image/teckstack.png">
 
 ### AI
 - python 3.6.9
