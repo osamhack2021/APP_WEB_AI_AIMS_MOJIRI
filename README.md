@@ -7,11 +7,14 @@
 	<img src="https://img.shields.io/github/license/osamhack2021/APP_WEB_AI_AIMS_MOJIRI?style=flat-square" />
 </p>
 
-<h2 align="center">프로젝트 설명 영상</h2>
-<table>
+<h2 align="center">프로젝트 설명</h2>
+<table align="center">
 	<tr>
 		<td>
-			<a href="https://www.youtube.com"><img src="image/youtube.png"></a>
+			<a href="https://www.youtube.com"><img src="image/youtube_small.png"></a>
+		</td>
+		<td>
+			<a href=""><img src="image/youtube_small.png"></a>
 		</td>
 	</tr>
 </table>
