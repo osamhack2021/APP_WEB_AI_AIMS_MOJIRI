@@ -15,7 +15,7 @@
 			<a href="https://youtu.be/CvEaEu7mY2s"><img src="image/youtube.png"></a>
 		</td>
 		<td>
-			<a href="https://siwon.gitbook.io/aims"><img src="image/gitbook.png"></a>
+			<a href="siwon.gitbook.io/aims"><img src="image/gitbook.png"></a>
 		</td>
 	</tr>
 </table>
