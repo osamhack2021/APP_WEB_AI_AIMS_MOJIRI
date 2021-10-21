@@ -34,6 +34,46 @@
 
 
 ## 기능 설명
+<table>
+  <tbody>
+		<tr>
+			<td colspan=2>
+				<br>
+				<b>APP MAIN_LOGIN</b><br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+      <td rowspan="2">
+        <div align="center">
+          <img src="image/app_main.PNG" width="50%" height="50%">
+        </div>
+      </td>
+      <td width="50%">앱 메인화면으로 로그인과 회원가입기능을 제공합니다.</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<table>
+  <tbody>
+		<tr>
+			<td colspan=2>
+				<br>
+				<b>APP MAIN_SignUp</b><br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+      <td rowspan="2">
+        <div align="center">
+          <img src="image/app_main.PNG" width="50%" height="50%">
+        </div>
+      </td>
+      <td width="50%">앱 메인화면으로 로그인과 회원가입기능을 제공합니다.</td>
+    </tr>
+  </tbody>
+</table>
    <table><tbody><tr>
    <td width="50%"><h4 align="center"><img src="image/app_main.PNG" width="50%" height="50%"></a><br><br>Login Page</h4></td>
    <td width="50%"><h4 align="center"><img src="image/app_main_2.PNG" width="50%" height="50%"></a><br><br>Main Page</h4></td>
