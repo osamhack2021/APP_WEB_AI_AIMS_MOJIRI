@@ -12,7 +12,7 @@
 <table align="center">
 	<tr>
 		<td>
-			<a href="https://youtu.be/ipAjxo-JdNE"><img src="image/youtube.png"></a>
+			<a href="https://youtu.be/CvEaEu7mY2s"><img src="image/youtube.png"></a>
 		</td>
 		<td>
 			<a href="https://siwon.gitbook.io/aims"><img src="image/gitbook.png"></a>
