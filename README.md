@@ -46,7 +46,7 @@
 		<tr>
       <td rowspan="2">
         <div align="center">
-          <img src="image/permission.gif" width="100%" height="100%">
+          <img src="image/permission.gif" width="400">
         </div>
       </td>
       <td width="65%">앱 최초실행 시 권한을 검사하고 권한을 허용해야합니다.<br>MDM App 특성상 많은 권한을 필요로합니다.</td>
@@ -67,11 +67,11 @@
 		<tr>
       <td rowspan="3">
         <div align="center">
-          <img src="image/app_main.gif" width="90%" height="90%">
+          <img src="image/app_main.gif" width="250">
         </div>
       </td>
 			<td><div align="center">
-		<img src="image/login.gif" width="70%" height="70%">
+		<img src="image/login.gif" width="250">
         </div>
 			</td>
       <td>권한 허용 시 등장하는 페이지입니다.<br>로그인과 회원가입을 제공합니다.</td>
@@ -91,7 +91,7 @@
 		<tr>
       <td rowspan="2">
         <div align="center">
-          <img src="image/signup.gif" width="100%" height="100%">
+          <img src="image/signup.gif" width="700">
         </div>
       </td>
       <td width="70%">군번과 부대코드(임의 정의)를 통해 가입을 할 수 있습니다.<br>국방부의 인사정보DB와 연계하여 입력 시 신원을 확인할 수 있습니다.</td>
@@ -113,7 +113,7 @@
 		<tr>
       <td rowspan="2">
         <div align="center">
-          <img src="image/pledge.gif" width="100%" height="100%">
+          <img src="image/pledge.gif" width="700">
         </div>
       </td>
       <td width="70%">회원가입과 함께 보안서약서를 작성할 수 있습니다.<br>보안등록 절차를 간소화할 수 있습니다.</td>
@@ -135,7 +135,7 @@
 		<tr>
       <td rowspan="2">
         <div align="center">
-          <img src="image/disableCamera.gif" width="100%" height="100%">
+          <img src="image/disableCamera.gif" width="700">
         </div>
       </td>
       <td width="70%">앱 실행 시 카메라가 차단된 것을 확인할 수 있습니다.</td>
@@ -156,11 +156,11 @@
 		<tr>
       <td rowspan="3">
         <div align="center">
-          <img src="image/startCamera.gif" width="90%" height="90%">
+          <img src="image/startCamera.gif" width="330">
         </div>
       </td>
 			<td><div align="center">
-		<img src="image/finishCamera.gif" width="70%" height="70%">
+		<img src="image/finishCamera.gif" width="330" >
         </div>
 			</td>
       <td>앱 내부에서 카메라를 작동시킬 수 있습니다.<br>이는 보안준수 카메라로 보안위배내역을 자동 블러처리해줍니다.<br>앱 내 캡쳐방지, 앱 강제종료시 다시 카메라 차단기능을 구현하여 혹시모를 사고를 방지했습니다.</td>
