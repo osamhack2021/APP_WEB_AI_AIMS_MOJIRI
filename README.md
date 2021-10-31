@@ -335,6 +335,6 @@ $ npx sequelize-cli db:seed:all;
 </table>
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
- * [MIT](license.md)
+ * [MIT](LICENSE.md)
 
 This project is licensed under the terms of the MIT license.
